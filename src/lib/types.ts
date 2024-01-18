@@ -2,7 +2,7 @@ import { PUBLIC_FRC_API_KEY, PUBLIC_FRC_USERNAME } from "$env/static/public";
 
 // TODO: set event info
 export const EVENT = {
-    season: 2022,
+    season: 2023,
     eventCode: "mose"
 };
 

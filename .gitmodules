@@ -1,0 +1,3 @@
+[submodule "src/lib/ScoutingFetch"]
+	path = src/lib/ScoutingFetch
+	url = https://github.com/Tlesis/ScoutingFetch.git

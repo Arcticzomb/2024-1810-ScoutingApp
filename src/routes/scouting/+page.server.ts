@@ -84,6 +84,6 @@ export const actions = {
         if (supabaseError)
             return fail(500, { error: supabaseError.message });
 
-        throw redirect(303, "/scouting/collection?" + new URLSearchParams({ id: data.toString() }));
+        throw redirect(303, "/scouting/collection?" + new URLSearchParams({ id: data.id.toString() }));
     }
 } satisfies Actions;

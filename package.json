@@ -12,7 +12,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^8.38.0",
-        "@sveltejs/adapter-auto": "^2.1.0",
+        "@sveltejs/adapter-auto": "^2.1.1",
         "@sveltejs/kit": "^1.5.0",
         "@typescript-eslint/eslint-plugin": "^5.45.0",
         "@typescript-eslint/parser": "^5.45.0",
@@ -21,6 +21,7 @@
         "eslint-plugin-svelte3": "^4.0.0",
         "globals": "^13.20.0",
         "postcss": "^8.4.21",
+        "supabase": "^1.131.4",
         "svelte": "^3.54.0",
         "svelte-check": "^3.0.1",
         "tailwindcss": "^3.3.1",

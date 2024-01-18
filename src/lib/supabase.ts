@@ -6,8 +6,6 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-
-// TODO: add the definitions for the database here
 export interface Database {
   public: {
     Tables: {
@@ -54,18 +52,60 @@ export interface Database {
           id: number
           matchid: number
           teamid: number
+          autoTaxi?: boolean
+          autoSpeaker?: number
+          autoAmp?: number
+          teleSpeaker?: number
+          teleAmp?: number
+          endClimb?: boolean
+          endHarmony?: boolean
+          endTrap?: boolean
+          gameOutcome?: number
+          endNotes?: string
+          endPark?: boolean
+          endHighNote?: boolean
+          endSpotlight?: boolean
+          intakeStyle?: number
         }
         Insert: {
           allianceColor?: number
           id?: number
           matchid?: number
           teamid?: number
+          autoTaxi?: boolean
+          autoSpeaker?: number
+          autoAmp?: number
+          teleSpeaker?: number
+          teleAmp?: number
+          endClimb?: boolean
+          endHarmony?: boolean
+          endTrap?: boolean
+          gameOutcome?: number
+          endNotes?: string
+          endPark?: boolean
+          endHighNote?: boolean
+          endSpotlight?: boolean
+          intakeStyle?: number
         }
         Update: {
           allianceColor?: number
           id?: number
           matchid?: number
           teamid?: number
+          autoTaxi?: boolean
+          autoSpeaker?: number
+          autoAmp?: number
+          teleSpeaker?: number
+          teleAmp?: number
+          endClimb?: boolean
+          endHarmony?: boolean
+          endTrap?: boolean
+          gameOutcome?: number
+          endNotes?: string
+          endPark?: boolean
+          endHighNote?: boolean
+          endSpotlight?: boolean
+          intakeStyle?: number
         }
         Relationships: []
       }

@@ -4,6 +4,6 @@
     },
     
     "terminal.integrated.env.osx": {
-    "PATH": "/Users/sss00122/node-v20.11.0-darwin-arm64/bin:$PATH"
+    "PATH": "~/node-v20.11.0-darwin-arm64/bin:$PATH"
     }
 }

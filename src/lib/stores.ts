@@ -10,13 +10,19 @@ export interface ScoutingData {
     matchid: number;
     teamid: number;
     teamcolor: AllianceColor;
+    autoTaxi: boolean;
+    autoAmp: number;
+    autoSpeaker: number,
 }
 
 const defaultData: ScoutingData = {
     id: 0,
     matchid: 0,
     teamid: 0,
-    teamcolor: AllianceColor.red
+    teamcolor: AllianceColor.red,
+    autoTaxi: false,
+    autoAmp: 0,
+    autoSpeaker: 0,
 };
 
 export const scoutingData = writable<ScoutingData>(defaultData);
