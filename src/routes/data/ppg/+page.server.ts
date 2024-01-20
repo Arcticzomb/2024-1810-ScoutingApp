@@ -1,13 +1,11 @@
 import { fail } from "@sveltejs/kit";
 import type { PageServerLoad } from "./$types";
-import { EVENT, fetchOptions, type FRCTeams } from "$lib/types";
 
-export const load = (async ({ locals: { supabase } }) => {
+export const load = (async ({ locals: { supabase, scoutingFetch } }) => {
 
     const [ teams, ppg ] = await Promise.all([
 
-        fetch(`https://frc-api.firstinspires.org/v3.0/${EVENT.season}/teams?&eventCode=${EVENT.eventCode}`, fetchOptions)
-            .then((res) => res.json() as Promise<FRCTeams>)
+        scoutingFetch.FRC.teams({ eventCode: scoutingFetch.event })
             .then((res) => res.teams.map((team) => ({
                 teamNumber: team.teamNumber,
                 teamName: team.nameShort

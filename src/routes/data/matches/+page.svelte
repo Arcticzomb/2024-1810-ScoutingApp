@@ -3,7 +3,6 @@
 </svelte:head>
 
 <script lang="ts">
-    import { EVENT, type StatMatch } from "$lib/types";
     import type { PageData } from "./$types";
 
     export let data: PageData;
@@ -42,8 +41,8 @@
 </script>
 
 <div class="w-full flex justify-center text-center my-8">
-    <a href={`https://www.thebluealliance.com/event/${EVENT.season}${EVENT.eventCode}`} target="_blank" class="flex w-fit">
-        <h1 class="text-w text-4xl font-thin">{EVENT.season} {data.eventName}</h1>
+    <a href={`https://www.thebluealliance.com/event/${data.season}${data.eventCode}`} target="_blank" class="flex w-fit">
+        <h1 class="text-w text-4xl font-thin">{data.season} {data.eventName}</h1>
         <img src="/tba.webp" alt="" class="m-2"/>
     </a>
 </div>
@@ -77,7 +76,7 @@
                 </td>
                 <!-- Match Number -->
                 <td class="text-center border-b underline text-link">
-                    <a href={`https://statbotics.io/match/${EVENT.season}${EVENT.eventCode}_qm${match.match_number}`} target="_blank">Quals {match.match_number}</a>
+                    <a href={`https://statbotics.io/match/${data.season}${data.eventCode}_qm${match.match_number}`} target="_blank">Quals {match.match_number}</a>
                 </td>
                 <!-- Red Alliance -->
                 <td class="bg-red-300 text-red-900 underline">
@@ -145,7 +144,7 @@
 </div>
 
 <footer class="w-screen bg-nav shadow-lg flex border-t rounded-t mt-16">
-    <p class="text-w m-8">Design <span class="italic">slightly</span> inspired by <a href={`https://statbotics.io/event/${EVENT.season}${EVENT.eventCode}#qual-matches`} target="_blank" class="text-link underline">Statbotics</a></p>
+    <p class="text-w m-8">Design <span class="italic">slightly</span> inspired by <a href={`https://statbotics.io/event/${data.season}${data.eventCode}#qual-matches`} target="_blank" class="text-link underline">Statbotics</a></p>
 </footer>
 
 <style lang="postcss">

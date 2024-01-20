@@ -8,6 +8,6 @@ export const load: LayoutServerLoad = async ({ locals: { getSession }, url }) =>
         throw redirect(303, redirectUrl);
     }
     return {
-        session: getSession()
+        session: await getSession()
     };
 };

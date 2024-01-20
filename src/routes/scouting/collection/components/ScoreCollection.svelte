@@ -1,11 +1,11 @@
 <script lang="ts">
     import type { SupabaseClient } from "@supabase/supabase-js";
     import type { Database } from "$lib/supabase";
-    import { ScoutingPage, compileAndScore, ppgStore, scoutingData, scoutingPage } from "$lib/stores";
+    import { ScoutingPage, WinState, compileAndScore, ppgStore, scoutingData, scoutingPage } from "$lib/stores";
     import Auto from "./auto/Auto.svelte";
     import Endgame from "./endgame/Endgame.svelte";
     import Teleop from "./teleop/Teleop.svelte";
-    import { WinState } from "$lib/types";
+    import FinishLine from "./FinishLine.svelte";
 
     export let supabase: SupabaseClient<Database>;
 
@@ -53,6 +53,8 @@
     <Teleop/>
 {:else if $scoutingPage === ScoutingPage.endgame}
     <Endgame/>
+{:else if $scoutingPage === ScoutingPage.finishLine}
+    <FinishLine/>
     <div class="flex justify-center mt-8">
         <button class={`w-5/6 text-xl shadow-sm rounded ${($scoutingData.win !== WinState.unset) ? "text-w bg-active" : "text-secondary bg-inactive"} py-3`}
                 on:click={submit}>Submit</button>

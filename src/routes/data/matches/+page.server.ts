@@ -1,20 +1,22 @@
-import { CompLevel, EVENT, fetchOptions, type FRCEvents, type StatMatch } from "$lib/types";
 import type { PageServerLoad } from "../$types";
 
-export const load = (async () => {
+export const load = (async ({ locals: { scoutingFetch } }) => {
 
     const [ eventName, statMatch ] = await Promise.all([
 
-        fetch(`https://frc-api.firstinspires.org/v3.0/${EVENT.season}/events?eventCode=${EVENT.eventCode}`, fetchOptions)
-            .then((res) => res.json() as Promise<FRCEvents>)
+        scoutingFetch.FRC.events(scoutingFetch.year, { eventCode: scoutingFetch.event })
             .then((res) => res.Events[0].name),
 
-        fetch(`https://api.statbotics.io/v2/matches/event/${EVENT.season}${EVENT.eventCode}`)
-            .then((res) => res.json() as Promise<StatMatch[]>)
-            .then((res) => res.filter((match) => match.comp_level === CompLevel.Qm))
+        scoutingFetch.Stat.matches({ year: scoutingFetch.year, event: scoutingFetch.eventkey })
+            .then((res) => res.filter((match) => match.comp_level === "qm"))
 
     ]);
 
-    return { eventName, statMatch };
+    return {
+        eventName,
+        statMatch,
+        eventCode: scoutingFetch.event,
+        season: scoutingFetch.year
+    };
 
 }) satisfies PageServerLoad;

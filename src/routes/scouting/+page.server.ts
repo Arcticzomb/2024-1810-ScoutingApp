@@ -1,14 +1,20 @@
-import { AllianceColor, EVENT, fetchOptions, type FRCSchedule } from "$lib/types";
+import { PUBLIC_FRC_API_KEY, PUBLIC_FRC_USERNAME } from "$env/static/public";
+import { AllianceColor } from "$lib/stores";
 import type { PageServerLoad } from "./$types";
 import { fail, type Actions, redirect } from "@sveltejs/kit";
 
 export const load = (async ({ locals: { supabase } }) => {
-
+ 
     const [matches, existing] = await Promise.all([
 
         // get the match schedule from FRC Events API
-        fetch(`https://frc-api.firstinspires.org/v3.0/${EVENT.season}/schedule/${EVENT.eventCode}?tournamentLevel=Qualification`, fetchOptions)
-            .then((res) => res.json() as Promise<FRCSchedule>)
+        fetch("https://frc-api.firstinspires.org/v3.0/2023/schedule/mose?teamNumber=1810",  {
+            headers: {
+                "accept": "application/json",
+                "Authorization": `Basic ${btoa(`${PUBLIC_FRC_USERNAME}:${PUBLIC_FRC_API_KEY}`)}`
+            }
+        })
+            .then((results) => results.json() as Promise<FrcSchedule>)
             .then((res) => res.Schedule.map((match) => ({
                 matchNumber: match.matchNumber,
                 red: match.teams.filter((team) => team.station.slice(0, 1) === "R").map((team) => team.teamNumber),
@@ -52,8 +58,13 @@ export const actions = {
         }
 
         /* upload data */
-        const matchs = await fetch(`https://frc-api.firstinspires.org/v3.0/${EVENT.season}/schedule/${EVENT.eventCode}?tournamentLevel=Qualification`, fetchOptions)
-            .then((res) => res.json() as Promise<FRCSchedule>)
+        const matchs = await fetch("https://frc-api.firstinspires.org/v3.0/2023/schedule/mose?teamNumber=1810",  {
+            headers: {
+                "accept": "application/json",
+                "Authorization": `Basic ${btoa(`${PUBLIC_FRC_USERNAME}:${PUBLIC_FRC_API_KEY}`)}`
+            }
+        })
+            .then((res) => res.json() as Promise<FrcSchedule>)
             .then((res) => res.Schedule.map((match) => ({
                 matchNumber: match.matchNumber,
                 red: match.teams.filter((team) => team.station.slice(0, 1) === "R").map((team) => team.teamNumber),

@@ -3,7 +3,7 @@
 </svelte:head>
 
 <script lang="ts">
-    import { AllianceColor } from "$lib/types";
+    import { AllianceColor } from "$lib/stores";
     import type { PageData } from "./$types";
 
     export let data: PageData;

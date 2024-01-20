@@ -1,7 +1,10 @@
 import {
     PUBLIC_SUPABASE_URL,
-    PUBLIC_SUPABASE_ANON_KEY
+    PUBLIC_SUPABASE_ANON_KEY,
+    PUBLIC_FRC_USERNAME,
+    PUBLIC_FRC_API_KEY
 } from "$env/static/public";
+import { ScoutingFetch } from "$lib/ScoutingFetch/ScoutingFetch";
 
 import { createSupabaseServerClient } from "@supabase/auth-helpers-sveltekit";
 import type { Handle } from "@sveltejs/kit";
@@ -11,6 +14,14 @@ export const handle: Handle = async ({ event, resolve }) => {
         supabaseUrl: PUBLIC_SUPABASE_URL,
         supabaseKey: PUBLIC_SUPABASE_ANON_KEY,
         event
+    });
+
+    event.locals.scoutingFetch = new ScoutingFetch(2023, "mose", {
+        // TBA: 
+        FIRSTEvents: {
+            username: PUBLIC_FRC_USERNAME,
+            key: PUBLIC_FRC_USERNAME
+        }
     });
 
     /**
