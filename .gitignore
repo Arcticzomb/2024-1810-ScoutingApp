@@ -222,4 +222,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Custom settings for PATH variable
+settings.json
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,node,svelte
