@@ -10,7 +10,7 @@
     export let supabase: SupabaseClient<Database>;
 
     const submit = async () => {
-        if ($scoutingData.win === WinState.unset) {
+        if ($scoutingData.winState === WinState.unset) {
             alert("Please set Won, Lost or Tied!");
             return;
         }
@@ -56,7 +56,7 @@
 {:else if $scoutingPage === ScoutingPage.finishLine}
     <FinishLine/>
     <div class="flex justify-center mt-8">
-        <button class={`w-5/6 text-xl shadow-sm rounded ${($scoutingData.win !== WinState.unset) ? "text-w bg-active" : "text-secondary bg-inactive"} py-3`}
+        <button class={`w-5/6 text-xl shadow-sm rounded ${($scoutingData.winState !== WinState.unset) ? "text-w bg-active" : "text-secondary bg-inactive"} py-3`}
                 on:click={submit}>Submit</button>
     </div>
 {/if}``

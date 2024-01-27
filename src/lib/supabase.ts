@@ -66,7 +66,7 @@ export interface Database {
           endHighNote?: boolean
           endSpotlight?: boolean
           intakeStyle?: number
-          coopertition?: number
+          coopertition?: boolean
         }
         Insert: {
           allianceColor?: number
@@ -87,7 +87,7 @@ export interface Database {
           endHighNote?: boolean
           endSpotlight?: boolean
           intakeStyle?: number
-          coopertition?: number
+          coopertition?: boolean
         }
         Update: {
           allianceColor?: number
@@ -108,7 +108,7 @@ export interface Database {
           endHighNote?: boolean
           endSpotlight?: boolean
           intakeStyle?: number
-          coopertition?: number
+          coopertition?: boolean
         }
         Relationships: []
       }
