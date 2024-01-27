@@ -60,12 +60,13 @@ export interface Database {
           endClimb?: boolean
           endHarmony?: boolean
           endTrap?: boolean
-          gameOutcome?: number
+          winState?: number
           endNotes?: string
           endPark?: boolean
           endHighNote?: boolean
           endSpotlight?: boolean
           intakeStyle?: number
+          coopertition?: number
         }
         Insert: {
           allianceColor?: number
@@ -80,12 +81,13 @@ export interface Database {
           endClimb?: boolean
           endHarmony?: boolean
           endTrap?: boolean
-          gameOutcome?: number
+          winState?: number
           endNotes?: string
           endPark?: boolean
           endHighNote?: boolean
           endSpotlight?: boolean
           intakeStyle?: number
+          coopertition?: number
         }
         Update: {
           allianceColor?: number
@@ -100,12 +102,13 @@ export interface Database {
           endClimb?: boolean
           endHarmony?: boolean
           endTrap?: boolean
-          gameOutcome?: number
+          winState?: number
           endNotes?: string
           endPark?: boolean
           endHighNote?: boolean
           endSpotlight?: boolean
           intakeStyle?: number
+          coopertition?: number
         }
         Relationships: []
       }

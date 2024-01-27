@@ -24,20 +24,19 @@ export interface ScoutingData {
     autoTaxi: boolean;
     autoAmp: number;
     autoSpeaker: number,
-    win: number,
     teleSpeaker: number,
     teleAmp: number,
     teleAmpedSpeaker: number,
     endClimb: boolean,
     endHarmony: boolean,
     endTrap: boolean,
-    gameOutcome: WinState,
+    winState: number,
     endNotes: string,
     endPark: boolean,
     endHighNote: boolean,
     endSpotlight: boolean,
     intakeStyle: number,
-    cooperatition: boolean,
+    coopertition: boolean,
     
 };
 
@@ -49,20 +48,19 @@ teamcolor: AllianceColor.red,
 autoTaxi: false,
 autoAmp: 0,
 autoSpeaker: 0,
- win: 0,
+winState: -1,
 teleSpeaker: 0,
 teleAmp: 0,
 teleAmpedSpeaker: 0,
 endClimb: false,
 endHarmony: false,
 endTrap: false, 
-gameOutcome: 0,
 endNotes: "",
 endPark: false,
 endHighNote: false,
 endSpotlight: false,
-intakeStyle: 0,
-cooperatition: false,
+intakeStyle: -1,
+coopertition: false,
 
 };
 
@@ -89,13 +87,12 @@ const compile = (data: ScoutingData) => {
        endClimb: data.endClimb,
        endHarmony: data.endHarmony,
        endTrap: data.endTrap,
-       //win tie loss
        endNotes: data.endNotes,
        endPark: data.endPark,
        endHighNote: data.endHighNote,
        endSpotlight: data.endSpotlight,
        intakeStyle: data.intakeStyle,
-      // cooperatition: data.cooperatition,
+      // coopertition: data.coopertition,
        
     };
 

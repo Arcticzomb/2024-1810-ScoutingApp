@@ -5,7 +5,7 @@
     import Auto from "./auto/Auto.svelte";
     import Endgame from "./endgame/Endgame.svelte";
     import Teleop from "./teleop/Teleop.svelte";
-    import FinishLine from "./FinishLine.svelte";
+    import FinishLine from "./finish/FinishLine.svelte";
 
     export let supabase: SupabaseClient<Database>;
 

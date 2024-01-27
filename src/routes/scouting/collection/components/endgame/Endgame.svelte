@@ -14,35 +14,34 @@ import { scoutingData } from "$lib/stores";
         </div>
 </div>
 
-
 <div class="flex flex-col">
-<div class="flex flex-row m-4">
-        <label for="Harmony" class="flex flex-col justify-center text-w text-xl font-semibold center">Harmony</label>
-        <input name="Park"
+<div id="harmony" class="flex flex-row m-4 center">
+        <label id="harmonyLabel" for="Harmony" class="flex flex-col justify-center text-w text-xl font-semibold">Harmony</label>
+        <input id="harmonyButton" name="Park"
                 type="checkbox"
                 bind:checked={$scoutingData.endHarmony}
                 class="appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2"/>
-</div>
+        </div>
 </div>
 
 <div class="flex flex-col">
-<div class="flex flex-row m-4 center">
-        <label for="Trap" class="flex flex-col justify-center text-w text-xl font-semibold">Trap</label>
-        <input name="Trap"
+<div id="trap" class="flex flex-row m-4">
+        <label id="trapLabel" for="Trap" class="flex flex-col justify-center text-w text-xl font-semibold">Trap</label>
+        <input id="trapButton" name="Trap"
                 type="checkbox"
                 bind:checked={$scoutingData.endTrap}
                 class="appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2"/>
-</div>
+        </div>
 </div>
 
 <div class="flex flex-col">
 <div class="flex flex-row m-4 center">
-        <label for="Spotlight" class="flex flex-col justify-center text-w text-xl font-semibold">Spotlight</label>
-        <input name="Spotlight"
+        <label id="spotlightLabel" for="Spotlight" class="flex flex-col justify-center text-w text-xl font-semibold">Spotlight</label>
+        <input id="spotlightButton" name="Spotlight"
                 type="checkbox"
                 bind:checked={$scoutingData.endSpotlight}
                 class="appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2"/>
-</div>
+        </div>
 </div>
 
 <style>
@@ -52,4 +51,40 @@ import { scoutingData } from "$lib/stores";
                 text-align: center;
                 padding: 10px;
         }
-    </style>
+
+        #harmonyLabel {
+        position: absolute;
+        left: 26%;
+        bottom: 74%;
+        }
+
+        #harmonyButton {
+        position: absolute;
+        left: 67%;
+        bottom: 72%;
+        }
+
+        #trapLabel {
+        position: absolute;
+        left: 26%;
+        bottom: 63%;
+        }
+
+        #trapButton {
+        position: absolute;
+        left: 67%;
+        bottom: 61%;
+        }
+
+        #spotlightLabel {
+        position: absolute;
+        left: 26%;
+        bottom: 52%;
+        }
+
+        #spotlightButton {
+        position: absolute;
+        left: 67%;
+        bottom: 50%;
+        }
+</style>
