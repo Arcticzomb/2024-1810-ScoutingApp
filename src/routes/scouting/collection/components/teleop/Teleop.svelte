@@ -11,11 +11,13 @@ const TeleDecSpeaker = () => {
         $scoutingData.teleSpeaker--;
     }
 }
+/*
 const TeleDecAmpedSpeaker = () => {
     if($scoutingData.teleAmpedSpeaker > 0){
         $scoutingData.teleAmpedSpeaker--;
     }
 }
+*/
 </script>
 
 <div class="flex m-4">
