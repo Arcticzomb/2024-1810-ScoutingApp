@@ -4,11 +4,11 @@ import { scoutingData } from "$lib/stores";
         
 <div class="flex flex-col">
         <div class="flex flex-row m-4 space-x-5 center">
-            <label for="Park" class="flex flex-col justify-center text-w text-xl font-semibold">Park</label>
+            <label for="Park" class="flex flex-col justify-center text-w scale-text font-semibold">Park</label>
             <input name="ParkHang" id="Park" type="radio" value="0"
             class="appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2 float-right"/>
     
-            <label for="ParkHang" class="flex flex-col justify-center text-w text-xl font-semibold">Hang</label>
+            <label for="ParkHang" class="flex flex-col justify-center text-w scale-text font-semibold">Hang</label>
             <input name="ParkHang" id="Hang" type="radio" value="1"
             class="appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2"/>
         </div>
@@ -16,7 +16,7 @@ import { scoutingData } from "$lib/stores";
 
 <div class="flex flex-col">
 <div id="harmony" class="flex flex-row m-4 center">
-        <label id="harmonyLabel" for="Harmony" class="flex flex-col justify-center text-w text-xl font-semibold">Harmony</label>
+        <label id="harmonyLabel" for="Harmony" class="flex flex-col justify-center text-w scale-text font-semibold">Harmony</label>
         <input id="harmonyButton" name="Park"
                 type="checkbox"
                 bind:checked={$scoutingData.endHarmony}
@@ -26,7 +26,7 @@ import { scoutingData } from "$lib/stores";
 
 <div class="flex flex-col">
 <div id="trap" class="flex flex-row m-4">
-        <label id="trapLabel" for="Trap" class="flex flex-col justify-center text-w text-xl font-semibold">Trap</label>
+        <label id="trapLabel" for="Trap" class="flex flex-col justify-center text-w scale-text font-semibold">Trap</label>
         <input id="trapButton" name="Trap"
                 type="checkbox"
                 bind:checked={$scoutingData.endTrap}
@@ -36,7 +36,7 @@ import { scoutingData } from "$lib/stores";
 
 <div class="flex flex-col">
 <div class="flex flex-row m-4 center">
-        <label id="spotlightLabel" for="Spotlight" class="flex flex-col justify-center text-w text-xl font-semibold">Spotlight</label>
+        <label id="spotlightLabel" for="Spotlight" class="flex flex-col justify-center text-w scale-text font-semibold">Spotlight</label>
         <input id="spotlightButton" name="Spotlight"
                 type="checkbox"
                 bind:checked={$scoutingData.endSpotlight}
@@ -87,4 +87,9 @@ import { scoutingData } from "$lib/stores";
         left: 67%;
         bottom: 50%;
         }
+
+        .scale-text {
+        font-size : 5vw;
+        }
+
 </style>

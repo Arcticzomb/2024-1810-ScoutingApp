@@ -19,17 +19,18 @@
 </script>
 
 {#if $scoutingPage !== ScoutingPage.loading}
-    <nav class="flex flex-row w-full justify-evenly">
+<div class="topnav">
+    <nav class="flex">
         <button on:click={() => $scoutingPage = ScoutingPage.auto}
-            class={`text-w text-xl ${$scoutingPage === ScoutingPage.auto    ? "bg-active" : "bg-inactive"} w-1/3 py-3 border border-w`}>Auto</button>
+            class={`text-w scale-text ${$scoutingPage === ScoutingPage.auto    ? "bg-active" : "bg-inactive"} w-1/3 py-3 border`}>Auto</button>
         <button on:click={() => $scoutingPage = ScoutingPage.teleop}
-            class={`text-w text-xl ${$scoutingPage === ScoutingPage.teleop  ? "bg-active" : "bg-inactive"} w-1/3 py-3 border border-w`}>Tele-Op</button>
+            class={`text-w scale-text ${$scoutingPage === ScoutingPage.teleop  ? "bg-active" : "bg-inactive"} w-1/3 py-3 border border-w`}>Tele-Op</button>
         <button on:click={() => $scoutingPage = ScoutingPage.endgame}
-            class={`text-w text-xl ${$scoutingPage === ScoutingPage.endgame ? "bg-active" : "bg-inactive"} w-1/3 py-3 border border-w`}>Endgame</button>
+            class={`text-w scale-text ${$scoutingPage === ScoutingPage.endgame ? "bg-active" : "bg-inactive"} w-1/3 py-3 border border-w`}>Endgame</button>
         <button on:click={() => $scoutingPage = ScoutingPage.finishLine}
-            class={`text-w text-xl ${$scoutingPage === ScoutingPage.finishLine ? "bg-active" : "bg-inactive"} w-1/3 py-3 border border-w`}>Finish</button>
+            class={`text-w scale-text ${$scoutingPage === ScoutingPage.finishLine ? "bg-active" : "bg-inactive"} w-1/3 py-3 border border-w`}>Finish</button>
     </nav>
-
+</div>
     <ScoreCollection supabase={data.supabase}/>
 
 {:else}
@@ -37,3 +38,14 @@
         <strong class="text-3xl text-center">Uploading&hellip;</strong>
     </div>
 {/if}
+
+<style>
+    .topnav {
+        background-color: #333;
+    }
+
+    .scale-text {
+        font-size : 5vw;
+    }
+
+</style>

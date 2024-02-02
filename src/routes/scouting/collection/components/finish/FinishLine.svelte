@@ -6,17 +6,17 @@
 
 <div class="flex flex-col">
     <div class="flex flex-row m-4 space-x-5 center">
-        <label for="win" class="flex flex-col justify-center text-w text-xl font-semibold">Win</label>
+        <label for="win" class="flex flex-col justify-center text-w scale-text font-semibold">Win</label>
         <input name="WinState" id="win" type="radio" value={WinState.Win}
         class="appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2"
         bind:group={$scoutingData.winState}/>
 
-        <label for="loss" class="flex flex-col justify-center text-w text-xl font-semibold">Loss</label>
+        <label for="loss" class="flex flex-col justify-center text-w scale-text font-semibold">Loss</label>
         <input name="WinState" id="loss" type="radio" value={WinState.Loss}
         class="appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2"
         bind:group={$scoutingData.winState}/>
 
-        <label for="tie" class="flex flex-col justify-center text-w text-xl font-semibold">Tie</label>
+        <label for="tie" class="flex flex-col justify-center text-w scale-text font-semibold">Tie</label>
         <input name="WinState" id="tie" type="radio" value={WinState.Tie}
         class="appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2"
         bind:group={$scoutingData.winState}/>
@@ -25,7 +25,7 @@
 
 <div class="flex flex-col center">
     <div class="flex flex-row m-4">
-        <label for="notes" class="flex flex-col text-w text-xl font-semibol center">notes</label>
+        <label for="notes" class="flex flex-col text-w scale-text font-semibol center">notes</label>
     </div>
     <input name="notes"
     type="text"
@@ -40,5 +40,10 @@
     text-align: center;
     padding: 10px;
     }
+
+    .scale-text {
+        font-size : 5vw;
+    }
+
 </style>
            
