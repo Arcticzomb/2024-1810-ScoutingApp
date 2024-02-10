@@ -19,7 +19,7 @@
 </script>
 
 {#if $scoutingPage !== ScoutingPage.loading}
-<div class="topnav">
+<div>
     <nav class="flex">
         <button on:click={() => $scoutingPage = ScoutingPage.auto}
             class={`text-w scale-text ${$scoutingPage === ScoutingPage.auto    ? "bg-active" : "bg-inactive"} w-1/3 py-3 border`}>Auto</button>
@@ -40,10 +40,6 @@
 {/if}
 
 <style>
-    .topnav {
-        background-color: #333;
-    }
-
     .dynMarg {
         margin: 5vw;
     }

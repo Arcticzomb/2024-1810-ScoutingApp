@@ -67,10 +67,6 @@
 </div>
 
 <style>
-    .dynMarg {
-        margin: 5vw;
-    }
-
     .dynMarg-small {
         margin: 3vw;
     }

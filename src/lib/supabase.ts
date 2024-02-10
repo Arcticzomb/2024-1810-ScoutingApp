@@ -53,16 +53,15 @@ export interface Database {
           matchid: number
           teamid: number
           autoTaxi?: number
-          autoSpeaker?: number
-          autoAmp?: number
-          teleSpeaker?: number
-          teleAmp?: number
+          autoSpeaker: number
+          autoAmp: number
+          teleSpeaker: number
+          teleAmp: number
           endClimb?: number
           endHarmony?: number
           endTrap?: number
           winState?: number
           endNotes?: string
-          endHighNote?: number
           endSpotlight?: number
           intakeStyle?: number
           coopertition?: number
@@ -73,16 +72,15 @@ export interface Database {
           matchid?: number
           teamid?: number
           autoTaxi?: number
-          autoSpeaker?: number
-          autoAmp?: number
-          teleSpeaker?: number
-          teleAmp?: number
+          autoSpeaker: number
+          autoAmp: number
+          teleSpeaker: number
+          teleAmp: number
           endClimb?: number
           endHarmony?: number
           endTrap?: number
           winState?: number
           endNotes?: string
-          endHighNote?: number
           endSpotlight?: number
           intakeStyle?: number
           coopertition?: number
@@ -93,16 +91,15 @@ export interface Database {
           matchid?: number
           teamid?: number
           autoTaxi?: number
-          autoSpeaker?: number
-          autoAmp?: number
-          teleSpeaker?: number
-          teleAmp?: number
+          autoSpeaker: number
+          autoAmp: number
+          teleSpeaker: number
+          teleAmp: number
           endClimb?: number
           endHarmony?: number
           endTrap?: number
           winState?: number
           endNotes?: string
-          endHighNote?: number
           endSpotlight?: number
           intakeStyle?: number
           coopertition?: number

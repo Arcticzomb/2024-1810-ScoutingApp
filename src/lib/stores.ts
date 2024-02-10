@@ -32,7 +32,6 @@ export interface ScoutingData {
     endTrap: boolean,
     winState: number, // 0 tie; 1 loss; 2 win;
     endNotes: string,
-    endHighNote: boolean,
     endSpotlight: boolean,
     intakeStyle: number,
     coopertition: boolean,
@@ -40,25 +39,24 @@ export interface ScoutingData {
 };
 
 const defaultData: ScoutingData = {
-id: 0,
-matchid: 0,
-teamid: 0,
-teamcolor: AllianceColor.red,
-autoTaxi: false,
-autoAmp: 0,
-autoSpeaker: 0,
-winState: -1,
-teleSpeaker: 0,
-teleAmp: 0,
-//teleAmpedSpeaker: 0,
-endClimb: 0,
-endHarmony: false,
-endTrap: false, 
-endNotes: "",
-endHighNote: false,
-endSpotlight: false,
-intakeStyle: -1,
-coopertition: false,
+    id: 0,
+    matchid: 0,
+    teamid: 0,
+    teamcolor: AllianceColor.red,
+    autoTaxi: false,
+    autoAmp: 0,
+    autoSpeaker: 0,
+    winState: -1,
+    teleSpeaker: 0,
+    teleAmp: 0,
+    //teleAmpedSpeaker: 0,
+    endClimb: 0,
+    endHarmony: false,
+    endTrap: false, 
+    endNotes: "",
+    endSpotlight: false,
+    intakeStyle: -1,
+    coopertition: false,
 
 };
 
@@ -73,25 +71,22 @@ const compile = (data: ScoutingData) => {
     // TODO: compile all of the data to be able to be sent to the database
     const compiledData: Database["public"]["Tables"]["scouting-data"]["Row"] = {
         id: data.id,
-        matchid: data.matchid,
         teamid: data.teamid,
+        matchid: data.matchid,
         allianceColor: data.teamcolor,
         autoTaxi: data.autoTaxi ? 1 : 0,
-        autoAmp: data.autoAmp,
         autoSpeaker: data.autoSpeaker,
+        autoAmp: data.autoAmp,
         teleSpeaker: data.teleSpeaker,
         teleAmp: data.teleAmp,
-        //teleAmpedSpeaker: data.teleAmpedSpeaker,
+        coopertition: data.coopertition ? 1 : 0,
+        intakeStyle: data.intakeStyle,
         endClimb: data.endClimb,
         endHarmony: data.endHarmony ? 1 : 0,
         endTrap: data.endTrap ? 1 : 0,
-        winState: data.winState,
-        endNotes: data.endNotes.replace(/\n/g, " "),
-        endHighNote: data.endHighNote ? 1 : 0,
         endSpotlight: data.endSpotlight ? 1 : 0,
-        intakeStyle: data.intakeStyle,
-        coopertition: data.coopertition ? 1 : 0,
-       
+        winState: data.winState,
+        endNotes: data.endNotes.replace(/\n/g, " "),       
     };
 
     return compiledData;
@@ -100,12 +95,18 @@ const compile = (data: ScoutingData) => {
 export const score = (data: Database["public"]["Tables"]["scouting-data"]["Row"]) => {
 
     // TODO: write the scoring of the data
+    let autoScore = data.autoAmp + data.autoSpeaker;
+    let teleScore = data.teleAmp + data.teleSpeaker;
+    let endScore = 0;
+    if (data.autoTaxi == 1) { endScore += 1; }
+    if (data.endClimb == 0) { endScore += 0 } else if (data.endClimb == 1) { endScore += 1 } else if (data.endClimb == 2) { endScore += 3 }
+
     return {
         compiledData: data,
         scoredData: {
-            auto: 0, 
-            teleop: 0,
-            endgame: 0,
+            auto: autoScore, 
+            teleop: teleScore,
+            endgame: endScore,
 
 
         }

@@ -100,23 +100,10 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-
     }
 
     .dynMarg {
         margin: 5vw;
-    }
-
-    .dynMarg-small {
-        margin: 3vw;
-    }
-
-    .dynPad {
-        padding: 5vw;
-    }
-
-    .dynPad-small {
-        padding: .5vw;
     }
 
     .scale-text {

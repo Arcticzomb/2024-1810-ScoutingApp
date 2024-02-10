@@ -130,12 +130,4 @@ const TeleAmpedSpeaker = () => {
     .scale-text-large {
         font-size : 9vw;
     }
-
-    .bgc1 {
-        background-color: #343;
-    }
-
-    .bgc2 {
-        background-color: #843;
-    }
 </style>

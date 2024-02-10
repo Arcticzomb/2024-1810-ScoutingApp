@@ -70,30 +70,12 @@
 </div>
 
 <style>
-    .dynMarg {
-        margin: 5vw;
-    }
-    .dynMarg-small {
-        margin: 3vw;
-    }
     .dynPad {
         padding: 5vw;
     }
-    .dynPad-top {
-        padding-top: 14vw;
-    }
+
     .scale-text {
         font-size : 5vw;
     }
-    .scale-text-large {
-        font-size : 9vw;
-    }
 
-    .bgc1 {
-        background-color: #333;
-    }
-
-    .bgc2 {
-        background-color: #433;
-    }
 </style>
