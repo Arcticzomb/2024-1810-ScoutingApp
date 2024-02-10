@@ -48,36 +48,83 @@
     // make sure to locally unsubscribe from realtime updates (as to not get billed)
     onDestroy(() => supabase.channel("any").unsubscribe());
 
+    let teamInput: string;
+
 </script>
 
 <a href="/" class="inline-block portrait:w-1/4 landscape:w-1/6 text-w text-center text-xl shadow-sm rounded bg-active py-2 m-2">Back</a>
 
 {#if form?.error}
-    <span class="flex justify-center m-3 text-red-700 text-center text-2xl font-bold capitalize">{form.error}</span>
+    <span class="center m-3 text-red-700 text-center text-2xl font-bold capitalize">{form.error}</span>
 {/if}
-
-<form autocomplete="off" class="mx-10 my-8 max-w-screen-sm bg-primary rounded-lg py-2" method="post" use:enhance>
+    
+<form autocomplete="off" class="dynMarg bg-primary rounded-lg py-2 text-center" method="post" use:enhance>
     <div class="mt-2">
         <label for="matchid" class="block text-w text-3xl font-bold text-center mb-2">Match</label>
         <input type="tel" required name="matchid" bind:value={matchid} placeholder="Qualification Match ID"
-            class="block m-auto portrait:w-5/6 landscape:w-2/3 text-xl text-center rounded-lg shadow-sm">
+            class="scale-text block m-auto portrait:w-5/6 landscape:w-2/3 text-xl text-center rounded-lg shadow-sm">
     </div>
 
     <div class="mt-2">
         <label for="teamid" class="block text-w text-3xl font-bold text-center mb-2">Team</label>
-        <input type="tel" name="teamid" placeholder="Team Number"
-            class="block m-auto portrait:w-5/6 landscape:w-2/3 text-xl text-center rounded-lg shadow-sm">
+        <input type="tel" id="teamInput" name="teamid" bind:value={teamInput} placeholder="Team Number: Click numbers below"
+            class="scale-text block m-auto portrait:w-5/6 landscape:w-2/3 text-xl text-center rounded-lg shadow-sm teamnum">
     </div>
-    <div class="mt-2 flex portrait:flex-col landscape:justify-center portrait:h-10 landscape:h-8">
+
+    <div class="my-2 flex portrait:flex-col landscape:justify-center portrait:h-10 landscape:h-8">
         <!-- spaces (&nbsp;) are needed to correctly maintain spacing on either orientation -->
-        <strong class="text-center text-w">&nbsp;Teams Available to Scout:&nbsp;</strong>
-        <div class="landscape:flex-row justify-center">
-            <p class="text-center font-bold text-red-600">{match.red.join(" ")}</p>
-            <p class="text-center font-bold text-link">{match.blue.join(" ")}</p>
-        </div>
+        <strong class="text-center text-w scale-text-med">Teams Available to Scout:</strong>
     </div>
+
+    <button on:click={() => teamInput = match?.red[0].toString() ?? ""} type="button" class="text-center font-bold text-red-600 mx-1 scale-text-med">
+        {match?.red[0] ?? ""}</button>
+    <button on:click={() => teamInput = match?.red[1].toString() ?? ""} type="button" class="text-center font-bold text-red-600 mx-1 scale-text-med">
+        {match?.red[1] ?? ""}</button>
+    <button on:click={() => teamInput = match?.red[2].toString() ?? ""} type="button" class="text-center font-bold text-red-600 mx-1 scale-text-med">
+        {match?.red[2] ?? ""}</button>
+    <br>
+    <button on:click={() => teamInput = match?.blue[0].toString() ?? ""} type="button" class="text-center font-bold text-link mx-1 scale-text-med">
+        {match?.blue[0] ?? ""}</button>
+    <button on:click={() => teamInput = match?.blue[1].toString() ?? ""} type="button" class="text-center font-bold text-link mx-1 scale-text-med">
+        {match?.blue[1] ?? ""}</button>
+    <button on:click={() => teamInput = match?.blue[2].toString() ?? ""} type="button" class="text-center font-bold text-link mx-1 scale-text-med">
+        {match?.blue[2] ?? ""}</button>
 
     <div class="landscape:mt-6 portrait:mt-12">
         <button type="submit" class="block mx-auto landscape:w-2/6 portrait:w-1/2 text-center text-w text-2xl shadow-sm rounded bg-active py-4 px-8">Start</button>
     </div>
 </form>
+
+<style>
+    .center {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+    }
+
+    .dynMarg {
+        margin: 5vw;
+    }
+
+    .dynMarg-small {
+        margin: 3vw;
+    }
+
+    .dynPad {
+        padding: 5vw;
+    }
+
+    .dynPad-small {
+        padding: .5vw;
+    }
+
+    .scale-text {
+        font-size: 3vw;
+    }
+
+    .scale-text-med {
+        font-size: 6vw;
+    }
+</style>
+

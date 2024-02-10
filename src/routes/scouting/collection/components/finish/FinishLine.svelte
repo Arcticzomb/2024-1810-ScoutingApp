@@ -4,7 +4,7 @@
 
 </script>
 
-<div class="flex flex-col">
+<div class="flex flex-col mt-14">
     <div class="flex flex-row m-4 space-x-5 center">
         <label for="win" class="flex flex-col justify-center text-w scale-text font-semibold">Win</label>
         <input name="WinState" id="win" type="radio" value={WinState.Win}
@@ -27,10 +27,9 @@
     <div class="flex flex-row m-4">
         <label for="notes" class="flex flex-col text-w scale-text font-semibol center">notes</label>
     </div>
-    <input name="notes"
-    type="text"
+    <textarea autocomplete="off" name="notes" wrap="soft"
     bind:value={$scoutingData.endNotes}
-    class="appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2" />
+    class="text-w appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2" />
 </div>
 
 <style>

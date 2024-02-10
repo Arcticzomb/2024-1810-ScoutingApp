@@ -1,3 +1,8 @@
+# REPO NOTE!!!
+# ###################################################################################################################
+# ## Make sure your node PATH var is properly set within /.vscode/settings.json if you are using the VSC terminal  ##
+# ## The PATH var must be the ABSOLUTE PATH i.e. /Users/.../node/bin/, not ~/node/bin. Obviously, make it your own ##
+# ###################################################################################################################
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).

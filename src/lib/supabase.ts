@@ -52,63 +52,60 @@ export interface Database {
           id: number
           matchid: number
           teamid: number
-          autoTaxi?: boolean
+          autoTaxi?: number
           autoSpeaker?: number
           autoAmp?: number
           teleSpeaker?: number
           teleAmp?: number
-          endClimb?: boolean
-          endHarmony?: boolean
-          endTrap?: boolean
+          endClimb?: number
+          endHarmony?: number
+          endTrap?: number
           winState?: number
           endNotes?: string
-          endPark?: boolean
-          endHighNote?: boolean
-          endSpotlight?: boolean
+          endHighNote?: number
+          endSpotlight?: number
           intakeStyle?: number
-          coopertition?: boolean
+          coopertition?: number
         }
         Insert: {
           allianceColor?: number
           id?: number
           matchid?: number
           teamid?: number
-          autoTaxi?: boolean
+          autoTaxi?: number
           autoSpeaker?: number
           autoAmp?: number
           teleSpeaker?: number
           teleAmp?: number
-          endClimb?: boolean
-          endHarmony?: boolean
-          endTrap?: boolean
+          endClimb?: number
+          endHarmony?: number
+          endTrap?: number
           winState?: number
           endNotes?: string
-          endPark?: boolean
-          endHighNote?: boolean
-          endSpotlight?: boolean
+          endHighNote?: number
+          endSpotlight?: number
           intakeStyle?: number
-          coopertition?: boolean
+          coopertition?: number
         }
         Update: {
           allianceColor?: number
           id?: number
           matchid?: number
           teamid?: number
-          autoTaxi?: boolean
+          autoTaxi?: number
           autoSpeaker?: number
           autoAmp?: number
           teleSpeaker?: number
           teleAmp?: number
-          endClimb?: boolean
-          endHarmony?: boolean
-          endTrap?: boolean
+          endClimb?: number
+          endHarmony?: number
+          endTrap?: number
           winState?: number
           endNotes?: string
-          endPark?: boolean
-          endHighNote?: boolean
-          endSpotlight?: boolean
+          endHighNote?: number
+          endSpotlight?: number
           intakeStyle?: number
-          coopertition?: boolean
+          coopertition?: number
         }
         Relationships: []
       }
