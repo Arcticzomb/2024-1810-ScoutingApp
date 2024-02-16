@@ -4,21 +4,32 @@
 
 </script>
 
-<div class="flex flex-col mt-14">
-    <div class="flex flex-row m-4 space-x-5 center">
-        <label for="win" class="flex flex-col justify-center text-w scale-text font-semibold">Win</label>
+<div class="flex text-w mx-4 justify-center mt-14">
+    <div class="inline-flex w-1/3">
+        <label for="win" class="flex flex-col justify-center text-w scale-text font-semibold ml-1"
+        style="margin-left: auto;">Win</label>
+
         <input name="WinState" id="win" type="radio" value={WinState.Win}
-        class="appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2"
+        class="appearance-none rounded shadow-sm checked:bg-active bg-inactive p-5 m-2"
+        style="margin-left: auto;margin-right: 1;"
         bind:group={$scoutingData.winState}/>
+    </div>
+    <div class="inline-flex w-1/3">
+        <label for="tie" class="flex flex-col justify-center text-w scale-text font-semibold ml-1"
+        style="margin-left: auto;">Loss</label>
 
-        <label for="loss" class="flex flex-col justify-center text-w scale-text font-semibold">Loss</label>
-        <input name="WinState" id="loss" type="radio" value={WinState.Loss}
-        class="appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2"
+        <input name="WinState" id="tie" type="radio" value={WinState.Loss}
+        class="appearance-none rounded shadow-sm checked:bg-active bg-inactive p-5 m-2"
+        style="margin-left: auto;margin-right: 1;"
         bind:group={$scoutingData.winState}/>
+    </div>
+    <div class="inline-flex w-1/3">
+        <label for="loss" class="flex flex-col justify-center text-w scale-text font-semibold ml-1"
+        style="margin-left: auto;">Tie</label>
 
-        <label for="tie" class="flex flex-col justify-center text-w scale-text font-semibold">Tie</label>
-        <input name="WinState" id="tie" type="radio" value={WinState.Tie}
-        class="appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2"
+        <input name="WinState" id="loss" type="radio" value={WinState.Tie}
+        class="appearance-none rounded shadow-sm checked:bg-active bg-inactive p-5 m-2"
+        style="margin-left: auto;margin-right: 1;"
         bind:group={$scoutingData.winState}/>
     </div>
 </div>
