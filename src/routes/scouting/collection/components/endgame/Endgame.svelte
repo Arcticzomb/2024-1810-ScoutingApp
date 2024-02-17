@@ -5,7 +5,7 @@
 
 <div class="flex my-3 justify-center mt-14">
     <div class="flex flex-row">
-        <h1 class="flex flex-col justify-center text-w scale-text font-semibold">Stage State</h1>
+        <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Stage State</h1>
     </div>
 </div>
 
@@ -15,7 +15,7 @@
         style="margin-left: auto;">None</label>
 
         <input name="parkHang" id="None" type="radio" value="0"
-        class="appearance-none rounded shadow-sm checked:bg-active bg-inactive p-5 m-2"
+        class="testcheck:tog checked:bg-active bg-inactive text-center"
         style="margin-left: auto;margin-right: 1;"
         bind:group={$scoutingData.endClimb}/>
     </div>
@@ -24,7 +24,7 @@
         style="margin-left: auto;">Park</label>
 
         <input name="parkHang" id="Park" type="radio" value="1"
-        class="appearance-none rounded shadow-sm checked:bg-active bg-inactive p-5 m-2"
+        class="testcheck:tog checked:bg-active bg-inactive text-center"
         style="margin-left: auto;margin-right: 1;"
         bind:group={$scoutingData.endClimb}/>
     </div>
@@ -33,39 +33,35 @@
         style="margin-left: auto;">Hang</label>
 
         <input name="parkHang" id="ParkHang" type="radio" value="2"
-        class="appearance-none rounded shadow-sm checked:bg-active bg-inactive p-5 m-2"
-        style="margin-left: auto;margin-right: 1;"
+        class="testcheck:tog checked:bg-active bg-inactive text-center"
         bind:group={$scoutingData.endClimb}/>
     </div>
 </div>
 
 <div class="flex justify-center dynPad mt-6">
     <div class="flex flex-row w-1/2">
-        <label for="Harmony" class="flex flex-col justify-center text-w scale-text font-semibold">Harmony</label>
-        <input id="Harmony" name="harmonyButton" type="checkbox"
+        <label for="harmony" class="flex flex-col justify-center text-w scale-text font-semibold">Harmony</label>
+        <input id="harmony" name="HarmonyButton" type="checkbox"
         bind:checked={$scoutingData.endHarmony}
-        class="appearance-none rounded shadow-sm dynPad checked:bg-active bg-inactive float-right"
-        style="margin-left: auto;margin-right: 0;"/>
+        class="testcheck:tog checked:bg-active bg-inactive text-center">
     </div>
 </div>
 
 <div class="flex justify-center dynPad">
     <div class="flex flex-row w-1/2">
-        <label for="Trap" class="flex flex-col justify-center text-w scale-text font-semibold">Trap</label>
-        <input id="Trap" name="trapButton" type="checkbox"
+        <label for="trap" class="flex flex-col justify-center text-w scale-text font-semibold">Trap</label>
+        <input id="trap" name="TrapButton" type="checkbox"
         bind:checked={$scoutingData.endTrap}
-        class="appearance-none rounded shadow-sm dynPad checked:bg-active bg-inactive"
-        style="margin-left: auto;margin-right: 0;"/>
+        class="testcheck:tog checked:bg-active bg-inactive text-center">
     </div>
 </div>
 
 <div class="flex justify-center dynPad">
     <div class="flex flex-row w-1/2">
-        <label for="Spotlight" class="flex flex-col justify-center text-w scale-text font-semibold">Spotlight</label>
-        <input id="Spotlight" name="spotlightButton" type="checkbox"
+        <label for="spotlight" class="flex flex-col justify-center text-w scale-text font-semibold">Spotlight</label>
+        <input id="spotlight" name="SpotlightButton" type="checkbox"
         bind:checked={$scoutingData.endSpotlight}
-        class="appearance-none rounded shadow-sm dynPad checked:bg-active bg-inactive"
-        style="margin-left: auto;margin-right: 0;"/>
+        class="testcheck:tog checked:bg-active bg-inactive text-center">
     </div>
 </div>
 
@@ -76,6 +72,48 @@
 
     .scale-text {
         font-size : 5vw;
+    }
+
+    .scale-text-large {
+        font-size : 7vw;
+    }
+
+    .testcheck\:tog:not(:checked),
+    .testcheck\:tog:checked {
+        appearance: none;
+        border-radius: 0.25rem;
+        --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        padding: 3vw;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .testcheck\:tog:not(:checked)::before,
+    .testcheck\:tog:checked::before {
+        content: "";
+        font-size: 3vw;
+        color: rgb(255 255 255);
+    }
+
+    .testcheck\:tog:not(:checked)::after,
+    .testcheck\:tog:checked::after {
+        content: "\2713";
+        font-size: 5vw;
+        line-height: 0.4vw;
+        color: rgb(255 255 255);
+        transition: all .2s;
+    }
+
+    .testcheck\:tog:not(:checked)::after {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    .testcheck\:tog:checked::after {
+        opacity: 1;
+        transform: scale(1);
     }
 
 </style>

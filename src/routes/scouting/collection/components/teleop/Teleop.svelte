@@ -62,61 +62,18 @@ const TeleAmpedSpeaker = () => {
     </div>
 </div>
 
-<div class="flex mx-4 my-8 justify-center">
-    <div class="flex flex-row w-1/2">
+<div class="flex justify-center dynPad">
+    <div class="flex flex-row w-1/2 mt-20">
         <label for="co-op" class="flex flex-col justify-center text-w scale-text font-semibold">co-op</label>
-        <input name="co-op"
-            type="checkbox"
+        <input name="co-op" type="checkbox"
             bind:checked={$scoutingData.coopertition}
-            class="m-4 appearance-none rounded shadow-sm dynPad checked:bg-active bg-inactive"
-            style="margin-left: auto;margin-right: 0;"/>
-    </div>
+            class="testcheck:tog checked:bg-active bg-inactive text-center">
+        </div>
 </div>
-
-<div class="flex my-3 justify-center">
-    <div class="flex flex-row">
-        <h1 class="flex flex-col justify-center text-w scale-text font-semibold">Intake/Pickup Method</h1>
-    </div>
-</div>
-
-<div class="flex text-w mx-4 justify-center">
-    <div class="inline-flex w-1/3">
-        <label for="station" class="flex flex-col justify-center text-w scale-text font-semibold"
-        style="margin-left: auto;">Station</label>
-
-        <input name="Pickup" id="station" type="radio" value="0"
-        class="appearance-none rounded shadow-sm checked:bg-active bg-inactive p-5 m-2"
-        style="margin-left: auto;margin-right: 1;"
-        bind:group={$scoutingData.intakeStyle}/>
-    </div>
-    <div class="inline-flex w-1/3">
-        <label for="ground" class="flex flex-col justify-center text-w scale-text font-semibold"
-        style="margin-left: 1; margin-right: 1;">Ground</label>
-        
-        <input name="Pickup" id="ground" type="radio" value="1"
-        class="appearance-none rounded shadow-sm checked:bg-active bg-inactive p-5 m-2"
-        style="margin-left: auto;margin-right: 1;"
-        bind:group={$scoutingData.intakeStyle}/>
-    </div>
-    <div class="inline-flex w-1/3">
-        <label for="both" class="flex flex-col justify-center text-w scale-text font-semibold"
-        style="margin-left: auto;">Both</label>
-
-        <input name="Pickup" id="both" type="radio" value="2"
-        class="appearance-none rounded shadow-sm checked:bg-active bg-inactive p-5 m-2"
-        style="margin-left: auto;margin-right: 1;"
-        bind:group={$scoutingData.intakeStyle}/>
-    </div>
-</div>
-
 
 <style>
     .dynMarg-small {
         margin: 3vw;
-    }
-
-    .dynPad {
-        padding: 5vw;
     }
 
     .dynPad-small {
@@ -128,6 +85,45 @@ const TeleAmpedSpeaker = () => {
     }
 
     .scale-text-large {
-        font-size : 9vw;
+        font-size : 7vw;
+    }
+
+
+    .testcheck\:tog:not(:checked),
+    .testcheck\:tog:checked {
+        appearance: none;
+        border-radius: 0.25rem;
+        --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        padding: 3vw;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .testcheck\:tog:not(:checked)::before,
+    .testcheck\:tog:checked::before {
+        content: "";
+        font-size: 3vw;
+        color: rgb(255 255 255);
+    }
+
+    .testcheck\:tog:not(:checked)::after,
+    .testcheck\:tog:checked::after {
+        content: "\2713";
+        font-size: 5vw;
+        line-height: 0.4vw;
+        color: rgb(255 255 255);
+        transition: all .2s;
+    }
+
+    .testcheck\:tog:not(:checked)::after {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    .testcheck\:tog:checked::after {
+        opacity: 1;
+        transform: scale(1);
     }
 </style>

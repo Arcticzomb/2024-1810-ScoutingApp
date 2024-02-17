@@ -14,13 +14,13 @@
 </script>
 
 
-<div class="flex my-14">
-    <div class="flex flex-row center">
-        <label for="taxi" class="flex flex-col justify-center text-w scale-text font-semibold">Left Starting Zone</label>
+<div class="flex mx-4 my-8 justify-center">
+    <div class="flex flex-row w-2/3">
+        <label for="taxi" class="flex flex-col justify-center text-w scale-text font-semibold w-5/6">Left Starting Zone</label>
         <input name="taxi"
                 type="checkbox"
                 bind:checked={$scoutingData.autoTaxi}
-                class="appearance-none rounded shadow-sm dynPad checked:bg-active bg-inactive m-2"/>
+                class="testcheck:tog checked:bg-active bg-inactive text-center">
     </div>
 </div>
 
@@ -71,16 +71,8 @@
         margin: 3vw;
     }
 
-    .dynPad {
-        padding: 5vw;
-    }
-
     .dynPad-small {
         padding: .5vw;
-    }
-
-    .center {
-        margin: auto;
     }
 
     .scale-text {
@@ -91,4 +83,41 @@
         font-size : 9vw;
     }
 
+    .testcheck\:tog:not(:checked),
+    .testcheck\:tog:checked {
+        appearance: none;
+        border-radius: 0.25rem;
+        --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        padding: 3vw;
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .testcheck\:tog:not(:checked)::before,
+    .testcheck\:tog:checked::before {
+        content: "";
+        font-size: 3vw;
+        color: rgb(255 255 255);
+    }
+
+    .testcheck\:tog:not(:checked)::after,
+    .testcheck\:tog:checked::after {
+        content: "\2713";
+        font-size: 5vw;
+        line-height: 0.4vw;
+        color: rgb(255 255 255);
+        transition: all .2s;
+    }
+
+    .testcheck\:tog:not(:checked)::after {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    .testcheck\:tog:checked::after {
+        opacity: 1;
+        transform: scale(1);
+    }
 </style>
