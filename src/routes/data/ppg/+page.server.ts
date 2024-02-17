@@ -5,7 +5,8 @@ export const load = (async ({ locals: { supabase, scoutingFetch } }) => {
 
     const [ teams, ppg ] = await Promise.all([
 
-        scoutingFetch.FRC.teams({ eventCode: scoutingFetch.event })
+        fetch(`https://frc-api.firstinspires.org/v3.0/${scoutingFetch.year}/teams?eventCode=${scoutingFetch.event}`, scoutingFetch.FRC.FIRSTEventsRequest)
+            .then((res) => res.json() as Promise<FrcTeams>)
             .then((res) => res.teams.map((team) => ({
                 teamNumber: team.teamNumber,
                 teamName: team.nameShort

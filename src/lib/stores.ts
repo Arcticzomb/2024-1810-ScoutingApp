@@ -46,7 +46,7 @@ const defaultData: ScoutingData = {
     autoTaxi: false,
     autoAmp: 0,
     autoSpeaker: 0,
-    winState: -1,
+    winState: WinState.unset,
     teleSpeaker: 0,
     teleAmp: 0,
     //teleAmpedSpeaker: 0,
@@ -95,10 +95,10 @@ const compile = (data: ScoutingData) => {
 export const score = (data: Database["public"]["Tables"]["scouting-data"]["Row"]) => {
 
     // TODO: write the scoring of the data
-    let autoScore = data.autoAmp + data.autoSpeaker;
-    let teleScore = data.teleAmp + data.teleSpeaker;
+    let autoScore = 2 * (data.autoAmp ?? 0) + 5 * (data.autoSpeaker ?? 0);
+    let teleScore = 1 * (data.teleAmp ?? 0) + 2 * (data.teleSpeaker ?? 0);
     let endScore = 0;
-    if (data.autoTaxi == 1) { endScore += 1; }
+    if (data.autoTaxi == 1) { autoScore += 1; }
     if (data.endClimb == 0) { endScore += 0 } else if (data.endClimb == 1) { endScore += 1 } else if (data.endClimb == 2) { endScore += 3 }
 
     return {

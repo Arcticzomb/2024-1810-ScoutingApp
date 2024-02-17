@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>[NAME] | Scouting</title>
+    <title>CATATRONICS | Scouting</title>
 </svelte:head>
 
 <script lang="ts">

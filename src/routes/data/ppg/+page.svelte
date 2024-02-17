@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>[NAME] | PPG</title>
+    <title>CATATRONICS | PPG</title>
 </svelte:head>
 
 <script lang="ts">
@@ -19,6 +19,7 @@
             return (b.pointTotal / b.matchesPlayed) - (a.pointTotal / a.matchesPlayed);
         }
     });
+    
 </script>
 
 
@@ -39,9 +40,11 @@
             </tr>
         </thead>
         <tbody class="font-thin">
-            {#each $ppgStore as p, index}
+           
+          {#each $ppgStore as p, index}
                 <PPGRow index={index} teams={data.teams}/>
             {/each}
+          
         </tbody>
     </table>
 </div>

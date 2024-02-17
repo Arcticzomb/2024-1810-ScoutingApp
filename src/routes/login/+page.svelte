@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>[NAME] | Login</title>
+    <title>CATATRONICS | Login</title>
 </svelte:head>
 
 <script lang="ts">

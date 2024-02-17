@@ -37,12 +37,13 @@
 
         return result;
     }
-
+    
     const ppgArray = $ppgStore;
     const overall = calculatePercentileRanks(ppgArray.map((ppg) => ppg.pointTotal / ppg.matchesPlayed));
     const auto = calculatePercentileRanks(ppgArray.map((ppg) => ppg.meanAuto));
     const teleop = calculatePercentileRanks(ppgArray.map((ppg) => ppg.meanTeleop));
     const endgame = calculatePercentileRanks(ppgArray.map((ppg) => ppg.meanEndgame));
+    
 </script>
 
 <tr>

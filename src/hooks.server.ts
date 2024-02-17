@@ -2,7 +2,8 @@ import {
     PUBLIC_SUPABASE_URL,
     PUBLIC_SUPABASE_ANON_KEY,
     PUBLIC_FRC_USERNAME,
-    PUBLIC_FRC_API_KEY
+    PUBLIC_FRC_API_KEY,
+    PUBLIC_TBA_KEY
 } from "$env/static/public";
 import { ScoutingFetch } from "$lib/ScoutingFetch/ScoutingFetch";
 
@@ -17,10 +18,10 @@ export const handle: Handle = async ({ event, resolve }) => {
     });
 
     event.locals.scoutingFetch = new ScoutingFetch(2023, "mose", {
-        // TBA: 
+        TBA: PUBLIC_TBA_KEY,
         FIRSTEvents: {
             username: PUBLIC_FRC_USERNAME,
-            key: PUBLIC_FRC_USERNAME
+            key: PUBLIC_FRC_API_KEY
         }
     });
 

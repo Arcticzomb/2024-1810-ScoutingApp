@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>[NAME] | Matches</title>
+    <title>CATATRONICS | Matches</title>
 </svelte:head>
 
 <script lang="ts">

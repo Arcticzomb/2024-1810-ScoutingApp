@@ -29,7 +29,7 @@
 
 <nav class="w-full bg-nav shadow-lg flex border-b rounded-b top-0">
     <a href="/" class="group text-w wide-text md:text-2xl px-8 py-2 my-2">
-        [NAME]
+        CATATRONICS
         <span class="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-w max-md:hidden"></span>
     </a>
     <div class="md:w-1/5 w-1/2 flex justify-around text-md text-w font-thin">
