@@ -21,8 +21,7 @@
     };
 
     $: availableTeams = searchableTeams.filter((teamid) => teamid.toString().startsWith(searchData?.toString() ?? "")).reduce((acc, teamid) => {
-        // acc.push(`<a href="/data/team/${teamid}" class="block px-4 py-1 hover:bg-[#cfcfcf]">${teamid}</a>`);
-        acc.push(`<span class="block px-4 py-1 hover:bg-[#cfcfcf]">${teamid}</span>`);
+        acc.push(`<a href="https://statbotics.io/team/${teamid}" target="blank" class="block px-4 py-1 hover:bg-[#cfcfcf]">${teamid}</a>`);
         return acc;
     }, [] as string[]).slice(0, 5);
 </script>
