@@ -1,69 +1,64 @@
 <script lang="ts">
-    import { scoutingData } from "$lib/stores";
+    import { EndClimb, scoutingData } from "$lib/stores";
 
 </script>
 
 <div class="flex my-3 justify-center mt-14">
-    <div class="flex flex-row">
-        <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Stage State</h1>
-    </div>
+    <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Stage State</h1>
 </div>
 
-<div class="flex text-w mx-4 justify-center">
-    <div class="inline-flex w-1/3">
-        <label for="None" class="flex flex-col justify-center text-w scale-text font-semibold ml-1"
-        style="margin-left: auto;">None</label>
+<div class="flex text-w justify-evenly">
+    <div class="flex flex-col justify-center w-1/3">
+        <label for="Park" class="text-center text-w scale-text font-semibold">None</label>
 
-        <input name="parkHang" id="None" type="radio" value="0"
-        class="testcheck:tog checked:bg-active bg-inactive text-center"
-        style="margin-left: auto;margin-right: 1;"
+        <input name="parkHang" id="Park" type="radio" value={EndClimb.None}
+        class="mx-auto testcheck:tog checked:bg-active bg-inactive"
         bind:group={$scoutingData.endClimb}/>
     </div>
-    <div class="inline-flex w-1/3">
-        <label for="Park" class="flex flex-col justify-center text-w scale-text font-semibold ml-1"
-        style="margin-left: auto;">Park</label>
+    <div class="flex flex-col justify-center w-1/3">
+        <label for="Park" class="text-center text-w scale-text font-semibold">Park</label>
 
-        <input name="parkHang" id="Park" type="radio" value="1"
-        class="testcheck:tog checked:bg-active bg-inactive text-center"
-        style="margin-left: auto;margin-right: 1;"
+        <input name="parkHang" id="Park" type="radio" value={EndClimb.Park}
+        class="mx-auto testcheck:tog checked:bg-active bg-inactive"
         bind:group={$scoutingData.endClimb}/>
     </div>
-    <div class="inline-flex w-1/3">
-        <label for="ParkHang" class="flex flex-col justify-center text-w scale-text font-semibold ml-1"
-        style="margin-left: auto;">Hang</label>
+    <div class="flex flex-col justify-center w-1/3">
+        <label for="ParkHang" class="text-center text-w scale-text font-semibold">Hang</label>
 
-        <input name="parkHang" id="ParkHang" type="radio" value="2"
-        class="testcheck:tog checked:bg-active bg-inactive text-center"
+        <input name="parkHang" id="ParkHang" type="radio" value={EndClimb.Hang}
+        class="mx-auto testcheck:tog checked:bg-active bg-inactive"
         bind:group={$scoutingData.endClimb}/>
     </div>
 </div>
 
-<div class="flex justify-center dynPad mt-6">
-    <div class="flex flex-row w-1/2">
-        <label for="harmony" class="flex flex-col justify-center text-w scale-text font-semibold">Harmony</label>
-        <input id="harmony" name="HarmonyButton" type="checkbox"
-        bind:checked={$scoutingData.endHarmony}
-        class="testcheck:tog checked:bg-active bg-inactive text-center">
+{#if $scoutingData.endClimb === EndClimb.Hang}
+    <div class="flex justify-center dynPad mt-6">
+        <div class="flex flex-row w-1/2">
+            <label for="harmony" class="flex flex-col justify-center text-w scale-text font-semibold">Harmony</label>
+            <input id="harmony" name="HarmonyButton" type="checkbox"
+            bind:checked={$scoutingData.endHarmony}
+            class="testcheck:tog checked:bg-active bg-inactive ml-auto mr-0">
+        </div>
     </div>
-</div>
 
-<div class="flex justify-center dynPad">
-    <div class="flex flex-row w-1/2">
-        <label for="trap" class="flex flex-col justify-center text-w scale-text font-semibold">Trap</label>
-        <input id="trap" name="TrapButton" type="checkbox"
-        bind:checked={$scoutingData.endTrap}
-        class="testcheck:tog checked:bg-active bg-inactive text-center">
+    <div class="flex justify-center dynPad">
+        <div class="flex flex-row w-1/2">
+            <label for="trap" class="flex flex-col justify-center text-w scale-text font-semibold">Trap</label>
+            <input id="trap" name="TrapButton" type="checkbox"
+            bind:checked={$scoutingData.endTrap}
+            class="testcheck:tog checked:bg-active bg-inactive ml-auto mr-0">
+        </div>
     </div>
-</div>
 
-<div class="flex justify-center dynPad">
-    <div class="flex flex-row w-1/2">
-        <label for="spotlight" class="flex flex-col justify-center text-w scale-text font-semibold">Spotlight</label>
-        <input id="spotlight" name="SpotlightButton" type="checkbox"
-        bind:checked={$scoutingData.endSpotlight}
-        class="testcheck:tog checked:bg-active bg-inactive text-center">
+    <div class="flex justify-center dynPad">
+        <div class="flex flex-row w-1/2">
+            <label for="spotlight" class="flex flex-col justify-center text-w scale-text font-semibold">Spotlight</label>
+            <input id="spotlight" name="SpotlightButton" type="checkbox"
+            bind:checked={$scoutingData.endSpotlight}
+            class="testcheck:tog checked:bg-active bg-inactive ml-auto mr-0">
+        </div>
     </div>
-</div>
+{/if}
 
 <style>
     .dynPad {
@@ -86,8 +81,6 @@
         --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
         box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
         padding: 5vw;
-        margin-left: auto;
-        margin-right: 0;
     }
 
     .testcheck\:tog:not(:checked)::before,

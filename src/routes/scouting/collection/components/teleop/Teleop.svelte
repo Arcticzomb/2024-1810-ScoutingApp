@@ -11,18 +11,15 @@ const TeleDecSpeaker = () => {
         $scoutingData.teleSpeaker--;
     }
 }
-/*
-const TeleAmpedSpeaker = () => {
-    if($scoutingData.teleAmpedSpeaker > 0){
-        $scoutingData.teleAmpedSpeaker--;
-    }
-}
-*/
 </script>
 
 <!-- the issue with the moving buttons is because it is linked to the text which causes it to fluctuate depending on the width of the numbers -->
 
-<div class="flex text-w mx-4 mt-14 justify-center text-center">
+<div class="flex my-3 justify-center mt-14">
+    <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Tele-op Scoring</h1>
+</div>
+
+<div class="flex text-w mx-4 mt-6 justify-center text-center">
     <span class="flex flex-col justify-center text-w scale-text font-semibold w-1/2">Speaker Scored</span>
     <div class="inline-flex w-1/2">
         <div class="w-1/3">
@@ -63,8 +60,8 @@ const TeleAmpedSpeaker = () => {
 </div>
 
 <div class="flex justify-center dynPad">
-    <div class="flex flex-row w-1/2 mt-20">
-        <label for="co-op" class="flex flex-col justify-center text-w scale-text font-semibold">co-op</label>
+    <div class="flex flex-row w-1/2 mt-8">
+        <label for="co-op" class="flex flex-col justify-center text-w scale-text font-semibold">Co-Op</label>
         <input name="co-op" type="checkbox"
             bind:checked={$scoutingData.coopertition}
             class="testcheck:tog checked:bg-active bg-inactive text-center">

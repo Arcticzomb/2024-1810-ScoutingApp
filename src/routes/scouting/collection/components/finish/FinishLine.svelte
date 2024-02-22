@@ -1,10 +1,15 @@
 <script lang="ts">
-    import { WinState, scoutingData } from "$lib/stores";
+    import { IntakeStyle, WinState, scoutingData } from "$lib/stores";
 
 
 </script>
 
-<div class="flex text-w mx-4 justify-center mt-14">
+<div class="flex mt-10 justify-center">
+    <div class="flex flex-row">
+        <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Win State</h1>
+    </div>
+</div>
+<div class="flex text-w mx-4 justify-center mt-2">
     <div class="inline-flex w-1/3">
         <label for="win" class="flex flex-col justify-center text-w scale-text font-semibold ml-1"
         style="margin-left: auto;">Win</label>
@@ -35,38 +40,30 @@
 </div>
 
 
-<div class="flex mt-10 mb-3 justify-center">
+<div class="flex mt-10 justify-center">
     <div class="flex flex-row">
         <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Intake/Pickup Method</h1>
     </div>
 </div>
-<div class="flex justify-center dynPad mt-6">
+<div class="flex justify-center mt-2">
     <div class="flex flex-row w-1/2">
         <label for="station" class="flex flex-col justify-center text-w scale-text font-semibold">Station</label>
-        <input name="Pickup" id="station" type="radio" value="0"
+        <input name="Pickup" id="station" type="checkbox"
         class="testcheck:tog checked:bg-active bg-inactive text-center"
-        bind:group={$scoutingData.intakeStyle}/>
+        bind:checked={$scoutingData.intakeStyle[0]}/>
     </div>
 </div>
-<div class="flex justify-center dynPad mt-6">
+<div class="flex justify-center mt-6">
     <div class="flex flex-row w-1/2">
         <label for="ground" class="flex flex-col justify-center text-w scale-text font-semibold">Ground</label>
-        <input name="Pickup" id="ground" type="radio" value="1"
+        <input name="Pickup" id="ground" type="checkbox"
         class="testcheck:tog checked:bg-active bg-inactive text-center"
-        bind:group={$scoutingData.intakeStyle}/>
-    </div>
-</div>
-    <div class="flex justify-center dynPad mt-6">
-    <div class="flex flex-row w-1/2">
-            <label for="both" class="flex flex-col justify-center text-w scale-text font-semibold">Both</label>
-        <input name="Pickup" id="both" type="radio" value="2"
-        class="testcheck:tog checked:bg-active bg-inactive text-center"
-        bind:group={$scoutingData.intakeStyle}/>
+        bind:checked={$scoutingData.intakeStyle[1]}/>
     </div>
 </div>
 
 <div class="flex flex-col center">
-    <div class="flex flex-row mt-10">
+    <div class="flex flex-row mt-0">
         <label for="notes" class="flex flex-col text-w scale-text-large font-semibol center">Notes</label>
     </div>
     <textarea autocomplete="off" name="notes" wrap="soft"
@@ -77,10 +74,10 @@
 
 <style>
     .center {
-    margin: auto;
-    width: auto;
-    text-align: center;
-    padding: 10px;
+        margin: auto;
+        width: auto;
+        text-align: center;
+        padding: 10px;
     }
 
     .scale-text {

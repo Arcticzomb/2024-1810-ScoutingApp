@@ -15,7 +15,20 @@ export enum WinState {
     unset = -1
 }
 
-// TODO: add all of the data that the scouting app needs to collect
+export enum IntakeStyle {
+    Hybrid = 2,
+    Ground = 1,
+    Station = 0,
+    unset = -1
+}
+
+export enum EndClimb {
+    Hang = 2,
+    Park = 1,
+    None = 0,
+    unset = -1
+}
+
 export interface ScoutingData {
     id: number;
     matchid: number;
@@ -26,14 +39,13 @@ export interface ScoutingData {
     autoSpeaker: number,
     teleSpeaker: number,
     teleAmp: number,
-    //teleAmpedSpeaker: number,
-    endClimb: number, // 0 none; 1 park; 2 hang
+    endClimb: EndClimb,
     endHarmony: boolean,
     endTrap: boolean,
-    winState: number, // 0 tie; 1 loss; 2 win;
+    winState: WinState,
     endNotes: string,
     endSpotlight: boolean,
-    intakeStyle: number,
+    intakeStyle: boolean[],
     coopertition: boolean,
     
 };
@@ -49,15 +61,13 @@ const defaultData: ScoutingData = {
     winState: WinState.unset,
     teleSpeaker: 0,
     teleAmp: 0,
-    //teleAmpedSpeaker: 0,
-    endClimb: 0,
+    endClimb: EndClimb.unset,
     endHarmony: false,
-    endTrap: false, 
+    endTrap: false,
     endNotes: "",
     endSpotlight: false,
-    intakeStyle: -1,
-    coopertition: false,
-
+    intakeStyle: [ false, false ],
+    coopertition: false
 };
 
 
@@ -68,7 +78,6 @@ export const scoutingData = writable<ScoutingData>(defaultData);
 export const compileAndScore = (data: ScoutingData) => score(compile(data));
 
 const compile = (data: ScoutingData) => {
-    // TODO: compile all of the data to be able to be sent to the database
     const compiledData: Database["public"]["Tables"]["scouting-data"]["Row"] = {
         id: data.id,
         teamid: data.teamid,
@@ -80,11 +89,32 @@ const compile = (data: ScoutingData) => {
         teleSpeaker: data.teleSpeaker,
         teleAmp: data.teleAmp,
         coopertition: data.coopertition ? 1 : 0,
-        intakeStyle: data.intakeStyle,
         endClimb: data.endClimb,
-        endHarmony: data.endHarmony ? 1 : 0,
-        endTrap: data.endTrap ? 1 : 0,
-        endSpotlight: data.endSpotlight ? 1 : 0,
+        endHarmony: (() => {
+            if (data.endClimb === EndClimb.Hang)
+                return (data.endHarmony ? 1 : 0)
+            return 0;
+            })(),
+        endTrap: (() => {
+            if (data.endClimb === EndClimb.Hang)
+                return (data.endTrap ? 1 : 0)
+            return 0;
+            })(),
+        endSpotlight: (() => {
+            if (data.endClimb === EndClimb.Hang)
+                return (data.endSpotlight ? 1 : 0)
+            return 0;
+            })(),
+        intakeStyle: (() => {
+            if (data.intakeStyle[0] && data.intakeStyle[1])
+                return IntakeStyle.Hybrid;
+            else if (data.intakeStyle[0])
+                return IntakeStyle.Station;
+            else if (data.intakeStyle[1])
+                return IntakeStyle.Ground;
+            else
+                return IntakeStyle.unset;
+        })(),
         winState: data.winState,
         endNotes: data.endNotes.replace(/\n/g, " "),       
     };
@@ -94,12 +124,32 @@ const compile = (data: ScoutingData) => {
 
 export const score = (data: Database["public"]["Tables"]["scouting-data"]["Row"]) => {
 
-    // TODO: write the scoring of the data
-    let autoScore = 2 * (data.autoAmp ?? 0) + 5 * (data.autoSpeaker ?? 0);
-    let teleScore = 1 * (data.teleAmp ?? 0) + 2 * (data.teleSpeaker ?? 0);
-    let endScore = 0;
-    if (data.autoTaxi == 1) { autoScore += 1; }
-    if (data.endClimb == 0) { endScore += 0 } else if (data.endClimb == 1) { endScore += 1 } else if (data.endClimb == 2) { endScore += 3 }
+    let autoScore =
+        (2 * (data.autoAmp ?? 0)) +
+        (5 * (data.autoSpeaker ?? 0)) +
+        (data.autoTaxi ? 2 : 0);
+
+    let teleScore =
+        (data.teleAmp ?? 0) +
+        (2 * (data.teleSpeaker ?? 0));
+
+    let endScore =
+        (data.endHarmony ? 2 : 0) +
+        (data.endTrap ? 5 : 0) +
+        (() => {
+            switch (data.endClimb) {
+                case EndClimb.Hang:
+                    return 3;
+                case EndClimb.Park:
+                    return 1;
+                case EndClimb.None:
+                    return 0;
+                case EndClimb.unset:
+                    return -1;
+                default:
+                    return 0;
+            }
+        })(); 
 
     return {
         compiledData: data,

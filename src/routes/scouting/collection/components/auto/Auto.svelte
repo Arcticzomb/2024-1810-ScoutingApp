@@ -13,16 +13,10 @@
 
 </script>
 
-
-<div class="flex mx-4 my-8 justify-center">
-    <div class="flex flex-row w-2/3">
-        <label for="taxi" class="flex flex-col justify-center text-w scale-text font-semibold w-5/6">Left Starting Zone</label>
-        <input name="taxi"
-                type="checkbox"
-                bind:checked={$scoutingData.autoTaxi}
-                class="testcheck:tog checked:bg-active bg-inactive text-center">
-    </div>
+<div class="flex my-3 justify-center mt-14">
+    <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Auto Scoring</h1>
 </div>
+
 
 <div class="flex justify-center">
     <span class="text-w scale-text font-semibold w-1/2 text-center">Speaker Scored</span>
@@ -63,6 +57,16 @@
         on:click={() => $scoutingData.autoAmp++}>&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;</button>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="flex mx-4 my-8 justify-center">
+    <div class="flex flex-row w-2/3">
+        <label for="taxi" class="flex flex-col justify-center text-w scale-text font-semibold w-5/6">Left Starting Zone</label>
+        <input name="taxi"
+                type="checkbox"
+                bind:checked={$scoutingData.autoTaxi}
+                class="testcheck:tog checked:bg-active bg-inactive text-center">
     </div>
 </div>
 
