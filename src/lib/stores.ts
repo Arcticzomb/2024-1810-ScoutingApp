@@ -142,10 +142,6 @@ export const score = (data: Database["public"]["Tables"]["scouting-data"]["Row"]
                     return 3;
                 case EndClimb.Park:
                     return 1;
-                case EndClimb.None:
-                    return 0;
-                case EndClimb.unset:
-                    return -1;
                 default:
                     return 0;
             }

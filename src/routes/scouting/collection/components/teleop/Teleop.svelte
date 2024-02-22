@@ -16,7 +16,7 @@ const TeleDecSpeaker = () => {
 <!-- the issue with the moving buttons is because it is linked to the text which causes it to fluctuate depending on the width of the numbers -->
 
 <div class="flex my-3 justify-center mt-14">
-    <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Tele-op Scoring</h1>
+    <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Tele-Op Scoring</h1>
 </div>
 
 <div class="flex text-w mx-4 mt-6 justify-center text-center">
