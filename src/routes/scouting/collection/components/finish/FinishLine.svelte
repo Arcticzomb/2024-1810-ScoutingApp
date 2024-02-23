@@ -4,7 +4,7 @@
 
 </script>
 
-<div class="flex mt-10 justify-center">
+<div class="flex mt-3 justify-center">
     <div class="flex flex-row">
         <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Win State</h1>
     </div>
@@ -68,7 +68,7 @@
     </div>
     <textarea autocomplete="off" name="notes" wrap="soft"
     bind:value={$scoutingData.endNotes}
-    class="text-w border-slate-500 border-2 appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive m-2"
+    class="text-w border-slate-500 border-2 appearance-none rounded shadow-sm p-5 checked:bg-active bg-inactive"
     placeholder="Enter notes here"/>
 </div>
 
@@ -85,17 +85,15 @@
     }
 
     .scale-text-large {
-        font-size : 7vw;
+        font-size : 9vw;
     }
 
     .testcheck\:tog:not(:checked),
     .testcheck\:tog:checked {
         appearance: none;
         border-radius: 0.25rem;
-        --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
         padding: 5vw;
+        line-height: 1.4;
         margin-left: auto;
         margin-right: 0;
     }
@@ -103,14 +101,12 @@
     .testcheck\:tog:not(:checked)::before,
     .testcheck\:tog:checked::before {
         content: "";
-        font-size: 3vw;
-        color: rgb(255 255 255);
     }
 
     .testcheck\:tog:not(:checked)::after,
     .testcheck\:tog:checked::after {
-        content: "\2713";
-        font-size: 5vw;
+        content: "✓";
+        font-size: 6vw;
         line-height: 0.4vw;
         color: rgb(255 255 255);
         transition: all .2s;
@@ -118,12 +114,10 @@
 
     .testcheck\:tog:not(:checked)::after {
         opacity: 0;
-        transform: scale(0);
     }
 
     .testcheck\:tog:checked::after {
         opacity: 1;
-        transform: scale(1);
     }
 
 </style>

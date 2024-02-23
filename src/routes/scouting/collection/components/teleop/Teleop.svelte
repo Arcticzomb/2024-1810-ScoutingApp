@@ -15,7 +15,7 @@ const TeleDecSpeaker = () => {
 
 <!-- the issue with the moving buttons is because it is linked to the text which causes it to fluctuate depending on the width of the numbers -->
 
-<div class="flex my-3 justify-center mt-14">
+<div class="flex my-3 justify-center">
     <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Tele-Op Scoring</h1>
 </div>
 
@@ -24,16 +24,16 @@ const TeleDecSpeaker = () => {
     <div class="inline-flex w-1/2">
         <div class="w-1/3">
             <div class="text-center">
-        <button class="appearance-none rounded shadow-sm px-3 bg-active dynMarg-small dynPad-small scale-text"
-        on:click={TeleDecSpeaker}>-</button>
+            <button class="appearance-none rounded shadow-sm bg-active dynMarg-small px-4 py-1 scale-text"
+            on:click={TeleDecSpeaker}>-</button>
             </div>
         </div>
 
         <p class="text-w my-auto scale-text-large font-thin w-1/3 text-center">{$scoutingData.teleSpeaker}</p>
         <div class="w-1/3">
             <div class="text-center">
-        <button class="appearance-none rounded shadow-sm px-3 bg-active dynMarg-small dynPad-small scale-text"
-        on:click={() => $scoutingData.teleSpeaker++}>+</button>
+            <button class="appearance-none rounded shadow-sm bg-active dynMarg-small px-4 py-1 scale-text"
+            on:click={() => $scoutingData.teleSpeaker++}>+</button>
             </div>
         </div>
     </div>
@@ -44,16 +44,16 @@ const TeleDecSpeaker = () => {
     <div class="inline-flex w-1/2">
         <div class="w-1/3">
             <div class="text-center">
-        <button class="appearance-none rounded shadow-sm px-3 bg-active dynMarg-small dynPad-small scale-text"
-        on:click={TeleDecAmp}>-</button>
+            <button class="appearance-none rounded shadow-sm bg-active dynMarg-small px-4 py-1 scale-text"
+            on:click={TeleDecAmp}>-</button>
             </div>
         </div>
 
         <p class="text-w my-auto scale-text-large font-thin w-1/3 text-center">{$scoutingData.teleAmp}</p>
         <div class="w-1/3">
             <div class="text-center">
-        <button class="appearance-none rounded shadow-sm px-3 bg-active dynMarg-small dynPad-small scale-text"
-        on:click={() => $scoutingData.teleAmp++}>+</button>
+            <button class="appearance-none rounded shadow-sm bg-active dynMarg-small px-4 py-1 scale-text"
+            on:click={() => $scoutingData.teleAmp++}>+</button>
             </div>
         </div>
     </div>
@@ -73,16 +73,12 @@ const TeleDecSpeaker = () => {
         margin: 3vw;
     }
 
-    .dynPad-small {
-        padding: 2vw;
-    }
-
     .scale-text {
         font-size : 5vw;
     }
 
     .scale-text-large {
-        font-size : 7vw;
+        font-size : 9vw;
     }
 
 
@@ -90,10 +86,9 @@ const TeleDecSpeaker = () => {
     .testcheck\:tog:checked {
         appearance: none;
         border-radius: 0.25rem;
-        --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
         padding: 5vw;
+        line-height: .8;
+        text-justify: right;
         margin-left: auto;
         margin-right: 0;
     }
@@ -101,26 +96,22 @@ const TeleDecSpeaker = () => {
     .testcheck\:tog:not(:checked)::before,
     .testcheck\:tog:checked::before {
         content: "";
-        font-size: 3vw;
-        color: rgb(255 255 255);
+
     }
 
     .testcheck\:tog:not(:checked)::after,
     .testcheck\:tog:checked::after {
-        content: "\2713";
-        font-size: 5vw;
-        line-height: 0.4vw;
+        content: "✓";
+        font-size: 6vw;
         color: rgb(255 255 255);
         transition: all .2s;
     }
 
     .testcheck\:tog:not(:checked)::after {
         opacity: 0;
-        transform: scale(0);
     }
 
     .testcheck\:tog:checked::after {
         opacity: 1;
-        transform: scale(1);
     }
 </style>

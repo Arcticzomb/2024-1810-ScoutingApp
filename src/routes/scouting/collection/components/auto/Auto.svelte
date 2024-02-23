@@ -13,7 +13,9 @@
 
 </script>
 
-<div class="flex my-3 justify-center mt-14">
+
+
+<div class="flex my-3 justify-center">
     <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Auto Scoring</h1>
 </div>
 
@@ -25,14 +27,14 @@
 <div class="flex text-w mx-4 justify-center">
     <div class="inline-flex w-2/3">
         <div class="w-1/3 text-center">
-            <button class="appearance-none rounded shadow-sm px-3 bg-active dynMarg-small dynPad-small scale-text"
-            on:click={AutoDecSpeaker}>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;</button>
+            <button class="appearance-none rounded shadow-sm bg-active dynMarg-small px-4 py-1 scale-text"
+            on:click={AutoDecSpeaker}>-</button>
         </div>
 
         <p class="text-w my-auto scale-text-large font-thin w-1/3 text-center">{$scoutingData.autoSpeaker}</p>
         <div class="w-1/3 text-center">
-            <button class="appearance-none rounded shadow-sm px-3 bg-active dynMarg-small dynPad-small scale-text"
-            on:click={() => $scoutingData.autoSpeaker++}>&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;</button>
+            <button class="appearance-none rounded shadow-sm bg-active dynMarg-small px-4 py-1 scale-text"
+            on:click={() => $scoutingData.autoSpeaker++}>+</button>
         </div>
     </div>
 </div>
@@ -45,16 +47,16 @@
     <div class="inline-flex w-2/3">
         <div class="w-1/3">
             <div class="text-center">
-        <button class="appearance-none rounded shadow-sm px-3 bg-active dynMarg-small dynPad-small scale-text"
-        on:click={AutoDecAmp}>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;</button>
+            <button class="appearance-none rounded shadow-sm bg-active dynMarg-small px-4 py-1 scale-text"
+            on:click={AutoDecAmp}>-</button>
             </div>
         </div>
 
         <p class="text-w my-auto scale-text-large font-thin w-1/3 text-center">{$scoutingData.autoAmp}</p>
         <div class="w-1/3">
             <div class="text-center">
-        <button class="appearance-none rounded shadow-sm px-3 bg-active dynMarg-small dynPad-small scale-text"
-        on:click={() => $scoutingData.autoAmp++}>&nbsp;&nbsp;&nbsp;+&nbsp;&nbsp;&nbsp;</button>
+        <button class="appearance-none rounded shadow-sm backact dynMarg-small px-4 py-1 scale-text"
+        on:click={() => $scoutingData.autoAmp++}>+</button>
             </div>
         </div>
     </div>
@@ -66,17 +68,19 @@
         <input name="taxi"
                 type="checkbox"
                 bind:checked={$scoutingData.autoTaxi}
-                class="testcheck:tog checked:bg-active bg-inactive text-center">
+                class="testcheck:tog checked:bg-active bg-inactive">
     </div>
 </div>
 
 <style>
-    .dynMarg-small {
-        margin: 3vw;
+
+    .backact {
+        --tw-bg-opacity: 1;
+        background-color: rgb(159 18 57 / var(--tw-bg-opacity));
     }
 
-    .dynPad-small {
-        padding: .5vw;
+    .dynMarg-small {
+        margin: 3vw;
     }
 
     .scale-text {
@@ -91,37 +95,29 @@
     .testcheck\:tog:checked {
         appearance: none;
         border-radius: 0.25rem;
-        --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
         padding: 5vw;
-        margin-left: auto;
-        margin-right: 0;
+        line-height: .8;
     }
 
     .testcheck\:tog:not(:checked)::before,
     .testcheck\:tog:checked::before {
         content: "";
-        font-size: 3vw;
-        color: rgb(255 255 255);
     }
 
     .testcheck\:tog:not(:checked)::after,
     .testcheck\:tog:checked::after {
-        content: "\2713";
-        font-size: 5vw;
-        line-height: 0.4vw;
+        content: "✓";
+        font-size: 6vw;
         color: rgb(255 255 255);
         transition: all .2s;
     }
 
     .testcheck\:tog:not(:checked)::after {
         opacity: 0;
-        transform: scale(0);
     }
 
     .testcheck\:tog:checked::after {
         opacity: 1;
-        transform: scale(1);
     }
+
 </style>
