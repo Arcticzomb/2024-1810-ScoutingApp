@@ -3,12 +3,12 @@ import { AllianceColor } from "$lib/stores";
 import type { PageServerLoad } from "./$types";
 import { fail, type Actions, redirect } from "@sveltejs/kit";
 
-export const load = (async ({ locals: { supabase } }) => {
+export const load = (async ({ locals: { supabase, scoutingFetch } }) => {
  
     const [matches, existing] = await Promise.all([
 
         // get the match schedule from FRC Events API
-        fetch("https://frc-api.firstinspires.org/v3.0/2023/schedule/mose?teamNumber=1810",  {
+        fetch(`https://frc-api.firstinspires.org/v3.0/${scoutingFetch.year}/schedule/${scoutingFetch.event}?tournamentLevel=qual`,  {
             headers: {
                 "accept": "application/json",
                 "Authorization": `Basic ${btoa(`${PUBLIC_FRC_USERNAME}:${PUBLIC_FRC_API_KEY}`)}`
@@ -34,7 +34,7 @@ export const load = (async ({ locals: { supabase } }) => {
 }) satisfies PageServerLoad;
 
 export const actions = {
-    default: async ({ request, locals: { supabase } }) => {
+    default: async ({ request, locals: { supabase, scoutingFetch } }) => {
         const form = await request.formData();
 
         const matchid = form.get("matchid") as string;
@@ -58,7 +58,7 @@ export const actions = {
         }
 
         /* upload data */
-        const matchs = await fetch("https://frc-api.firstinspires.org/v3.0/2023/schedule/mose?teamNumber=1810",  {
+        const matchs = await fetch(`https://frc-api.firstinspires.org/v3.0/${scoutingFetch.year}/schedule/${scoutingFetch.event}?tournamentLevel=qual`,  {
             headers: {
                 "accept": "application/json",
                 "Authorization": `Basic ${btoa(`${PUBLIC_FRC_USERNAME}:${PUBLIC_FRC_API_KEY}`)}`
