@@ -16,7 +16,7 @@ export const handle: Handle = async ({ event, resolve }) => {
         event
     });
 
-    event.locals.scoutingFetch = new ScoutingFetch(2023, "mose", {
+    event.locals.scoutingFetch = new ScoutingFetch(2024, "ISDE2", {
         // TBA: PUBLIC_TBA_KEY,
         FIRSTEvents: {
             username: PUBLIC_FRC_USERNAME,
