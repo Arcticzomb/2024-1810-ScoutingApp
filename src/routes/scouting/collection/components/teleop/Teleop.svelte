@@ -13,9 +13,9 @@ const TeleDecSpeaker = () => {
 }
 </script>
 
-<!-- the issue with the moving buttons is because it is linked to the text which causes it to fluctuate depending on the width of the numbers -->
+<p class ="flex flex-col justify-center mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team {$scoutingData.teamid}</p>
 
-<div class="flex my-3 justify-center">
+<div class="flex mb-3 justify-center">
     <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Tele-Op Scoring</h1>
 </div>
 
@@ -71,6 +71,10 @@ const TeleDecSpeaker = () => {
 <style>
     .dynMarg-small {
         margin: 3vw;
+    }
+
+    .scale-text-small {
+        font-size : 3vw;
     }
 
     .scale-text {

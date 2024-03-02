@@ -4,7 +4,9 @@
 
 </script>
 
-<div class="flex mt-3 justify-center">
+<p class ="flex flex-col justify-center mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team {$scoutingData.teamid}</p>
+
+<div class="flex justify-center">
     <div class="flex flex-row">
         <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Win State</h1>
     </div>
@@ -78,6 +80,10 @@
         width: auto;
         text-align: center;
         padding: 10px;
+    }
+
+    .scale-text-small {
+        font-size : 3vw;
     }
 
     .scale-text {

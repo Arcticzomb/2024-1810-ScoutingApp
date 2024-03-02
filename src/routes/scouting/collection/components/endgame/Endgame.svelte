@@ -3,7 +3,9 @@
 
 </script>
 
-<div class="flex my-3 justify-center">
+<p class ="flex flex-col justify-center mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team {$scoutingData.teamid}</p>
+
+<div class="flex mb-3 justify-center">
     <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Stage State</h1>
 </div>
 
@@ -68,6 +70,10 @@
 <style>
     .dynPad {
         padding: 5vw;
+    }
+
+    .scale-text-small {
+        font-size : 3vw;
     }
 
     .scale-text {

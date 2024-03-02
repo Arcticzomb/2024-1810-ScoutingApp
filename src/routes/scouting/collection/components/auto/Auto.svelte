@@ -1,5 +1,6 @@
 <script lang="ts">
     import { scoutingData } from "$lib/stores";
+    import { page } from "$app/stores";
 
     const AutoDecAmp = () => {
         if ($scoutingData.autoAmp > 0)
@@ -13,9 +14,9 @@
 
 </script>
 
+<p class ="flex flex-col justify-center mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team {$scoutingData.teamid}</p>
 
-
-<div class="flex my-3 justify-center">
+<div class="flex mb-3 justify-center">
     <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Auto Scoring</h1>
 </div>
 
@@ -85,6 +86,10 @@
 
     .scale-text {
         font-size : 5vw;
+    }
+
+    .scale-text-small {
+        font-size : 3vw;
     }
 
     .scale-text-large {
