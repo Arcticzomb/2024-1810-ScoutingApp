@@ -12,7 +12,7 @@
     <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Stage State</h1>
 </div>
 
-<div class="flex text-w justify-evenly">
+<div class="flex justify-evenly">
     <div class="flex flex-col justify-center w-1/3">
         <label for="Park" class="text-center text-w scale-text font-semibold">None</label>
 
@@ -76,7 +76,7 @@
     }
 
     .scale-text-small {
-        font-size : 3vw;
+        font-size : 4vw;
     }
 
     .scale-text {
@@ -116,5 +116,4 @@
     .testcheck\:tog:checked::after {
         opacity: 1;
     }
-
 </style>

@@ -77,7 +77,7 @@
     }
 
     .scale-text-small {
-        font-size : 3vw;
+        font-size : 4vw;
     }
 
     .scale-text {
