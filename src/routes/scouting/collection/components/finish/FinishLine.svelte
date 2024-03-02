@@ -1,10 +1,12 @@
 <script lang="ts">
     import { IntakeStyle, WinState, scoutingData } from "$lib/stores";
 
-
 </script>
 
-<p class ="flex flex-col justify-center mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team {$scoutingData.teamid}</p>
+<div class="flex">
+    <p class ="mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team</p>
+    <p class ={`scale-text-small font-semibold ${$scoutingData.teamcolor ? "text-blue-alliance" : "text-red-alliance"}`}>{$scoutingData.teamid}</p>
+</div>
 
 <div class="flex justify-center">
     <div class="flex flex-row">

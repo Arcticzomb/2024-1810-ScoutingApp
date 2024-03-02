@@ -76,18 +76,18 @@
         <strong class="text-center text-w scale-text-med">Teams Available to Scout:</strong>
     </div>
 
-    <button on:click={() => teamInput = match?.red[0].toString() ?? ""} type="button" class="text-center font-bold text-red-600 mx-1 scale-text-med">
+    <button on:click={() => teamInput = match?.red[0].toString() ?? ""} type="button" class="text-center font-bold text-red-alliance mx-1 scale-text-med">
         {match?.red[0] ?? ""}</button>
-    <button on:click={() => teamInput = match?.red[1].toString() ?? ""} type="button" class="text-center font-bold text-red-600 mx-1 scale-text-med">
+    <button on:click={() => teamInput = match?.red[1].toString() ?? ""} type="button" class="text-center font-bold text-red-alliance mx-1 scale-text-med">
         {match?.red[1] ?? ""}</button>
-    <button on:click={() => teamInput = match?.red[2].toString() ?? ""} type="button" class="text-center font-bold text-red-600 mx-1 scale-text-med">
+    <button on:click={() => teamInput = match?.red[2].toString() ?? ""} type="button" class="text-center font-bold text-red-alliance mx-1 scale-text-med">
         {match?.red[2] ?? ""}</button>
     <br>
-    <button on:click={() => teamInput = match?.blue[0].toString() ?? ""} type="button" class="text-center font-bold text-link mx-1 scale-text-med">
+    <button on:click={() => teamInput = match?.blue[0].toString() ?? ""} type="button" class="text-center font-bold text-blue-alliance mx-1 scale-text-med">
         {match?.blue[0] ?? ""}</button>
-    <button on:click={() => teamInput = match?.blue[1].toString() ?? ""} type="button" class="text-center font-bold text-link mx-1 scale-text-med">
+    <button on:click={() => teamInput = match?.blue[1].toString() ?? ""} type="button" class="text-center font-bold text-blue-alliance mx-1 scale-text-med">
         {match?.blue[1] ?? ""}</button>
-    <button on:click={() => teamInput = match?.blue[2].toString() ?? ""} type="button" class="text-center font-bold text-link mx-1 scale-text-med">
+    <button on:click={() => teamInput = match?.blue[2].toString() ?? ""} type="button" class="text-center font-bold text-blue-alliance mx-1 scale-text-med">
         {match?.blue[2] ?? ""}</button>
 
     <div class="landscape:mt-6 portrait:mt-12">

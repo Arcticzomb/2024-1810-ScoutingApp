@@ -1,6 +1,5 @@
 <script lang="ts">
     import { scoutingData } from "$lib/stores";
-    import { page } from "$app/stores";
 
     const AutoDecAmp = () => {
         if ($scoutingData.autoAmp > 0)
@@ -12,9 +11,16 @@
             $scoutingData.autoSpeaker--;
     }
 
+    const teamCol = () => {
+    if ($scoutingData.teamcolor === 0) { return("Red")} else { return("Blue") }
+    }
+
 </script>
 
-<p class ="flex flex-col justify-center mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team {$scoutingData.teamid}</p>
+<div class="flex">
+    <p class ="mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team</p>
+    <p class ={`scale-text-small font-semibold ${$scoutingData.teamcolor ? "text-blue-alliance" : "text-red-alliance"}`}>{$scoutingData.teamid}</p>
+</div>
 
 <div class="flex mb-3 justify-center">
     <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Auto Scoring</h1>

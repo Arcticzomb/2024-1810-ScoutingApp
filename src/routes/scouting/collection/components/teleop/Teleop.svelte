@@ -1,19 +1,22 @@
 <script>
     import { scoutingData } from "$lib/stores";
 
-const TeleDecAmp = () => {
-    if($scoutingData.teleAmp > 0){
-        $scoutingData.teleAmp--;
+    const TeleDecAmp = () => {
+        if($scoutingData.teleAmp > 0){
+            $scoutingData.teleAmp--;
+        }
     }
-}
-const TeleDecSpeaker = () => {
-    if($scoutingData.teleSpeaker > 0){
-        $scoutingData.teleSpeaker--;
+    const TeleDecSpeaker = () => {
+        if($scoutingData.teleSpeaker > 0){
+            $scoutingData.teleSpeaker--;
+        }
     }
-}
 </script>
 
-<p class ="flex flex-col justify-center mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team {$scoutingData.teamid}</p>
+<div class="flex">
+    <p class ="mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team</p>
+    <p class ={`scale-text-small font-semibold ${$scoutingData.teamcolor ? "text-blue-alliance" : "text-red-alliance"}`}>{$scoutingData.teamid}</p>
+</div>
 
 <div class="flex mb-3 justify-center">
     <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Tele-Op Scoring</h1>

@@ -11,8 +11,8 @@ export default {
                 "w": "#f3f4f6",
 
                 "link": "#3b82f6",
-                "blue-alliance": "#1e3a8a",
-                "red-alliance": "#9f1239",
+                "blue-alliance": "#3b82f6",
+                "red-alliance": "#dc2626",
                 "nav": "#21242c"
             }
         }
