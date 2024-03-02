@@ -93,11 +93,11 @@
     .testcheck\:tog:checked {
         appearance: none;
         border-radius: 0.25rem;
-        padding: 5vw;
-        line-height: .8;
-        text-justify: right;
+        width: 15vw;
+        height: 15vw;
         margin-left: auto;
         margin-right: 0;
+        text-align: center;
     }
 
     .testcheck\:tog:not(:checked)::before,
