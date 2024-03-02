@@ -91,8 +91,8 @@
     .testcheck\:tog:checked {
         appearance: none;
         border-radius: 0.25rem;
-        padding: 5vw;
-        line-height: 1.4;
+        width: 10vw;
+        height: 10vw;
     }
 
     .testcheck\:tog:not(:checked)::before,
@@ -102,11 +102,11 @@
 
     .testcheck\:tog:not(:checked)::after,
     .testcheck\:tog:checked::after {
-        content: "\2713";
-        font-size: 6vw;
-        line-height: 0.4vw;
+        content: "✓";
+        font-size: 7vw;
         color: rgb(255 255 255);
         transition: all .2s;
+        text-align: center;
     }
 
     .testcheck\:tog:not(:checked)::after {

@@ -97,32 +97,12 @@
         font-size : 9vw;
     }
 
-    .testcheck\:tog {
-        appearance: none;
-        padding: 5vw;
-        border-radius: 0.25rem;
-        transition: all .2s;
-        width: 5vw;
-        height: 5vw;
-    }
-
-    .testcheck\:tog::before {
-        content: ' ';
-    }
-
-    .testcheck\:tog:checked::before {
-        content: "✓";
-        font-size: 5vw;
-        color: rgb(255 255 255);
-    }
-    
-    /*
     .testcheck\:tog:not(:checked),
     .testcheck\:tog:checked {
         appearance: none;
         border-radius: 0.25rem;
-        padding: 5vw;
-        line-height: .8;
+        width: 10vw;
+        height: 10vw;
     }
 
     .testcheck\:tog:not(:checked)::before,
@@ -133,9 +113,10 @@
     .testcheck\:tog:not(:checked)::after,
     .testcheck\:tog:checked::after {
         content: "✓";
-        font-size: 6vw;
+        font-size: 7vw;
         color: rgb(255 255 255);
         transition: all .2s;
+        text-align: center;
     }
 
     .testcheck\:tog:not(:checked)::after {
@@ -145,5 +126,4 @@
     .testcheck\:tog:checked::after {
         opacity: 1;
     }
-    */
 </style>
