@@ -108,7 +108,7 @@
     .testcheck\:tog:not(:checked)::after,
     .testcheck\:tog:checked::after {
         content: "✓";
-        font-size: 6vw;
+        font-size: 7vw;
         color: rgb(255 255 255);
         transition: all .2s;
         text-align: center;
