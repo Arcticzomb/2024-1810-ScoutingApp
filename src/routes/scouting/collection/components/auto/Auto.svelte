@@ -103,6 +103,8 @@
         border-radius: 0.25rem;
         width: 10vw;
         height: 10vw;
+        text-align: center;
+
     }
 
     .testcheck\:tog:not(:checked)::before,
@@ -116,7 +118,6 @@
         font-size: 7vw;
         color: rgb(255 255 255);
         transition: all .2s;
-        text-align: center;
     }
 
     .testcheck\:tog:not(:checked)::after {
