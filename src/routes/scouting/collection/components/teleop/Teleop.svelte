@@ -67,7 +67,7 @@
         <label for="co-op" class="flex flex-col justify-center text-w scale-text font-semibold">Co-Op</label>
         <input name="co-op" type="checkbox"
             bind:checked={$scoutingData.coopertition}
-            class="testcheck:tog checked:bg-active bg-inactive text-center">
+            class="testcheck:tog checked:bg-active bg-inactive">
         </div>
 </div>
 
@@ -77,7 +77,7 @@
     }
 
     .scale-text-small {
-        font-size : 3vw;
+        font-size : 4vw;
     }
 
     .scale-text {
@@ -93,23 +93,22 @@
     .testcheck\:tog:checked {
         appearance: none;
         border-radius: 0.25rem;
-        padding: 5vw;
-        line-height: .8;
-        text-justify: right;
+        width: 10vw;
+        height: 10vw;
         margin-left: auto;
         margin-right: 0;
+        text-align: center;
     }
 
     .testcheck\:tog:not(:checked)::before,
     .testcheck\:tog:checked::before {
         content: "";
-
     }
 
     .testcheck\:tog:not(:checked)::after,
     .testcheck\:tog:checked::after {
         content: "✓";
-        font-size: 6vw;
+        font-size: 7vw;
         color: rgb(255 255 255);
         transition: all .2s;
     }

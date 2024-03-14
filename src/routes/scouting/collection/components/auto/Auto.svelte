@@ -62,7 +62,7 @@
         <p class="text-w my-auto scale-text-large font-thin w-1/3 text-center">{$scoutingData.autoAmp}</p>
         <div class="w-1/3">
             <div class="text-center">
-        <button class="appearance-none rounded shadow-sm backact dynMarg-small px-4 py-1 scale-text"
+        <button class="appearance-none rounded shadow-sm bg-active dynMarg-small px-4 py-1 scale-text"
         on:click={() => $scoutingData.autoAmp++}>+</button>
             </div>
         </div>
@@ -81,11 +81,6 @@
 
 <style>
 
-    .backact {
-        --tw-bg-opacity: 1;
-        background-color: rgb(159 18 57 / var(--tw-bg-opacity));
-    }
-
     .dynMarg-small {
         margin: 3vw;
     }
@@ -95,7 +90,7 @@
     }
 
     .scale-text-small {
-        font-size : 3vw;
+        font-size : 4vw;
     }
 
     .scale-text-large {
@@ -106,8 +101,10 @@
     .testcheck\:tog:checked {
         appearance: none;
         border-radius: 0.25rem;
-        padding: 5vw;
-        line-height: .8;
+        width: 10vw;
+        height: 10vw;
+        text-align: center;
+
     }
 
     .testcheck\:tog:not(:checked)::before,
@@ -118,7 +115,7 @@
     .testcheck\:tog:not(:checked)::after,
     .testcheck\:tog:checked::after {
         content: "✓";
-        font-size: 6vw;
+        font-size: 7vw;
         color: rgb(255 255 255);
         transition: all .2s;
     }
@@ -130,5 +127,4 @@
     .testcheck\:tog:checked::after {
         opacity: 1;
     }
-
 </style>
