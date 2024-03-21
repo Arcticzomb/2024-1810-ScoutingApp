@@ -1,8 +1,8 @@
 import type { ServerLoad, Actions, ActionFailure } from "@sveltejs/kit";
 import { fail, redirect } from "@sveltejs/kit";
 
-export const load = (async ({ locals: { getSession } }) => {
-    if (await getSession()) throw redirect(303, "/");
+export const load = (async ({ url, locals: { getSession } }) => {
+    if (await getSession()) throw redirect(303, url.searchParams.get("redirect_url") ?? "/");
 }) satisfies ServerLoad;
 
 export const actions = {

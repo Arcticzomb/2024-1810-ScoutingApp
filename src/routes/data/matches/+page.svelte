@@ -79,7 +79,7 @@
                     <a href={`https://statbotics.io/match/${data.season}${data.eventCode}_qm${match.match_number}`} target="_blank">Quals {match.match_number}</a>
                 </td>
                 <!-- Red Alliance -->
-                <td class="bg-red-300 text-red-900 underline">
+                <td class="bg-red-300 text-red-900">
                     <span class={`flex justify-evenly mx-3
                         ${((match.red_score ?? 0) > (match.blue_score ?? 0)) ?
                         "font-bold" :
@@ -93,7 +93,7 @@
                     </span>
                 </td>
                 <!-- Blue Alliance -->
-                <td class="bg-blue-400 text-slate-800 underline">
+                <td class="bg-blue-400 text-slate-800">
                     <span class={`flex justify-evenly mx-3
                         ${((match.red_score ?? 0) < (match.blue_score ?? 0)) ?
                         "font-bold" :

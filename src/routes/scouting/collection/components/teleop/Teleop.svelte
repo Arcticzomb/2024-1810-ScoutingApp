@@ -1,5 +1,6 @@
 <script>
     import { scoutingData } from "$lib/stores";
+    import CurrentTeam from "../CurrentTeam.svelte";
 
     const TeleDecAmp = () => {
         if($scoutingData.teleAmp > 0){
@@ -16,11 +17,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
-
-<div class="flex">
-    <p class ="mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team</p>
-    <p class ={`scale-text-small font-semibold ${$scoutingData.teamcolor ? "text-blue-alliance" : "text-red-alliance"}`}>{$scoutingData.teamid}</p>
-</div>
 
 <div class="flex mb-3 justify-center">
     <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Tele-Op Scoring</h1>
@@ -66,22 +62,11 @@
     </div>
 </div>
 
-<div class="flex justify-center">
-    <div class="flex flex-row w-1/2 mt-8">
-        <label for="co-op" class="flex flex-col justify-center text-w scale-text font-semibold w-5/6">Co-Op</label>
-        <input name="co-op" type="checkbox"
-            bind:checked={$scoutingData.coopertition}
-            class="testcheck:tog checked:bg-active bg-inactive">
-        </div>
-</div>
+<CurrentTeam scoutingData={$scoutingData}/>
 
 <style>
     .dynMarg-small {
         margin: 3vw;
-    }
-
-    .scale-text-small {
-        font-size : 4vw;
     }
 
     .scale-text {
@@ -90,37 +75,5 @@
 
     .scale-text-large {
         font-size : 9vw;
-    }
-
-
-    .testcheck\:tog:not(:checked),
-    .testcheck\:tog:checked {
-        appearance: none;
-        border-radius: 0.25rem;
-        width: 10vw;
-        height: 10vw;
-        text-align: center;
-
-    }
-
-    .testcheck\:tog:not(:checked)::before,
-    .testcheck\:tog:checked::before {
-        content: "";
-    }
-
-    .testcheck\:tog:not(:checked)::after,
-    .testcheck\:tog:checked::after {
-        content: "✓";
-        font-size: 7vw;
-        color: rgb(255 255 255);
-        transition: all .2s;
-    }
-
-    .testcheck\:tog:not(:checked)::after {
-        opacity: 0;
-    }
-
-    .testcheck\:tog:checked::after {
-        opacity: 1;
     }
 </style>

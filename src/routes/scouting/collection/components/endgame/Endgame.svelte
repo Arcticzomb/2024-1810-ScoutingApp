@@ -1,16 +1,11 @@
 <script lang="ts">
     import { EndClimb, scoutingData } from "$lib/stores";
-
+    import CurrentTeam from "../CurrentTeam.svelte";
 </script>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
-
-<div class="flex">
-    <p class ="mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team</p>
-    <p class ={`scale-text-small font-semibold ${$scoutingData.teamcolor ? "text-blue-alliance" : "text-red-alliance"}`}>{$scoutingData.teamid}</p>
-</div>
 
 <div class="flex mb-3 justify-center">
     <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Stage State</h1>
@@ -74,14 +69,12 @@
     </div>
 {/if}
 
+<CurrentTeam scoutingData={$scoutingData}/>
+
 <style>
     
     .dynPad {
         padding: 5vw;
-    }
-
-    .scale-text-small {
-        font-size : 4vw;
     }
 
     .scale-text {
