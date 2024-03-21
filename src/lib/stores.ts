@@ -44,7 +44,6 @@ export interface ScoutingData {
     endTrap: boolean,
     winState: WinState,
     endNotes: string,
-    endSpotlight: boolean,
     intakeStyle: boolean[],
     coopertition: boolean,
     
@@ -65,7 +64,6 @@ const defaultData: ScoutingData = {
     endHarmony: false,
     endTrap: false,
     endNotes: "",
-    endSpotlight: false,
     intakeStyle: [ false, false ],
     coopertition: false
 };
@@ -98,11 +96,6 @@ const compile = (data: ScoutingData) => {
         endTrap: (() => {
             if (data.endClimb === EndClimb.Hang)
                 return (data.endTrap ? 1 : 0)
-            return 0;
-            })(),
-        endSpotlight: (() => {
-            if (data.endClimb === EndClimb.Hang)
-                return (data.endSpotlight ? 1 : 0)
             return 0;
             })(),
         intakeStyle: (() => {

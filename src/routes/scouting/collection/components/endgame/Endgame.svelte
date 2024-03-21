@@ -35,46 +35,42 @@
     </div>
 </div>
 
-{#if $scoutingData.endClimb === EndClimb.Hang}
-
-    <div class="flex mt-10 justify-center">
-        <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Climb Extras</h1>
-    </div>
-
-    <div class="flex justify-center dynPad">
-        <div class="flex flex-row w-1/2">
-            <label for="harmony" class="flex flex-col justify-center text-w scale-text font-semibold">Harmony</label>
-            <input id="harmony" name="HarmonyButton" type="checkbox"
-            bind:checked={$scoutingData.endHarmony}
-            class="testcheck:tog checked:bg-active bg-inactive ml-auto mr-0">
+<div class="fadein">
+    {#if $scoutingData.endClimb === EndClimb.Hang}
+        <div class="flex mt-10 justify-center">
+            <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Climb Extras</h1>
         </div>
-    </div>
 
-    <div class="flex justify-center dynPad">
-        <div class="flex flex-row w-1/2">
-            <label for="trap" class="flex flex-col justify-center text-w scale-text font-semibold">Trap</label>
-            <input id="trap" name="TrapButton" type="checkbox"
-            bind:checked={$scoutingData.endTrap}
-            class="testcheck:tog checked:bg-active bg-inactive ml-auto mr-0">
+        <div class="flex justify-center dynPad">
+            <div class="flex flex-row w-1/2">
+                <label for="harmony" class="flex flex-col justify-center text-w scale-text font-semibold">Harmony</label>
+                <input id="harmony" name="HarmonyButton" type="checkbox"
+                bind:checked={$scoutingData.endHarmony}
+                class="testcheck:tog checked:bg-active bg-inactive ml-auto mr-0">
+            </div>
         </div>
-    </div>
 
-    <div class="flex justify-center dynPad">
-        <div class="flex flex-row w-1/2">
-            <label for="spotlight" class="flex flex-col justify-center text-w scale-text font-semibold">Spotlight</label>
-            <input id="spotlight" name="SpotlightButton" type="checkbox"
-            bind:checked={$scoutingData.endSpotlight}
-            class="testcheck:tog checked:bg-active bg-inactive ml-auto mr-0">
+        <div class="flex justify-center dynPad">
+            <div class="flex flex-row w-1/2">
+                <label for="trap" class="flex flex-col justify-center text-w scale-text font-semibold">Trap</label>
+                <input id="trap" name="TrapButton" type="checkbox"
+                bind:checked={$scoutingData.endTrap}
+                class="testcheck:tog checked:bg-active bg-inactive ml-auto mr-0">
+            </div>
         </div>
-    </div>
-{/if}
+    {/if}
+</div>
 
 <div class="absolute w-full bottom-20">
     <CurrentTeam scoutingData={$scoutingData}/>
 </div>
 
 <style>
-    
+
+    .fadein {
+        transition: all .2s;
+    }
+
     .dynPad {
         padding: 5vw;
     }
