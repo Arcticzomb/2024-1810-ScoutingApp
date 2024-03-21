@@ -116,7 +116,7 @@ const compile = (data: ScoutingData) => {
                 return IntakeStyle.unset;
         })(),
         winState: data.winState,
-        endNotes: data.endNotes.replace(/\n/g, " "),       
+        endNotes: data.endNotes.replace(/\n/g, " ")
     };
 
     return compiledData;
@@ -150,7 +150,7 @@ export const score = (data: Database["public"]["Tables"]["scouting-data"]["Row"]
     return {
         compiledData: data,
         scoredData: {
-            auto: autoScore, 
+            auto: autoScore,
             teleop: teleScore,
             endgame: endScore,
 

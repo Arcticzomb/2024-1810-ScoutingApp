@@ -8,14 +8,13 @@
 
     export let data: PageData;
 
-    // TODO: hard code a bunch of headers for the table that you would like
     const headers = ["Match Number", "Team Number", "Win", "Left Zone", "Auto Speaker", "Auto Amp", "Teleop Speaker", "Teleop Amp", "Climb", "Trap"];
 
     // download button callback
     // generates the CSV of compiled data inplace
     const download = () => {
         const headers = Object.keys(data.existing[0]).join(',');
-        const rows = data.existing.map(obj => Object.values(obj).join(','));
+        const rows = data.existing.map(obj => { if (obj.winState !== WinState.unset) return Object.values(obj).join(',') });
         const csvContent = `${headers}\n${rows.join('\n')}`;
 
         const link = document.createElement('a');
@@ -50,9 +49,9 @@
             case WinState.Loss:
                 return "<span class=\"px-2 rounded-md bg-red-500 text-black\">No</span>";
             case WinState.Tie:
-                return "<span class=\"px-2 rounded-md font-thin text-slate-500\">Tie</span>";
+                return "<span class=\"px-2 rounded-md bg-nav text-w\">Tie</span>";
             case WinState.unset:
-                return " ";
+                return null;
         }
     };
 </script>
@@ -72,28 +71,26 @@
             {/each}
         </thead>
         <tbody class="border-2">
-            <!-- TODO: fill table so that each element matches the header defined above-->
             {#each data.existing as team}
-                <tr class="text-w border border-slate-500">
-                    <td>{team.matchid}</td>
-                    <td class="inline-flex items-center">
-                        <svg class="w-3 h-3 mr-1 mt-px">
-                            <circle cx="5" cy="5" r="5" class={`fill-current ${(team.allianceColor === AllianceColor.red) ? "text-red-500" : "text-blue-600"}`}></circle>
-                        </svg>
-                        {team.teamid}
-                    </td>
-                    <td>
-                        {@html winState(team.winState ?? WinState.unset)}
-                    </td>
-                    <td class="border-l border-slate-500">{team.autoTaxi ? "Yes" : " "}</td>
-                    <td class={`${(!team.autoSpeaker) ? "font-thin text-slate-500" : ""}`}>{(team.autoSpeaker ?? 0)}</td>
-                    <td class={`${(!team.autoAmp) ? "font-thin text-slate-500" : ""}`}>{(team.autoAmp ?? 0)}</td>
-                    <td class={`border-l border-slate-500 ${(!team.teleSpeaker) ? "font-thin text-slate-500" : ""}`}>{team.teleSpeaker ?? 0}</td>
-                    <td class={`${(!team.teleAmp) ? "font-thin text-slate-500" : ""}`}>{(team.teleAmp ?? 0)}</td>
-                    <td class="border-l border-slate-500">{team.endClimb ? "Yes" : " "}</td>
-                    <td>{team.endTrap ? "Yes" : " "}</td>
-                    
-                </tr>
+                {#if team.winState !== WinState.unset}
+                    <tr class="text-w border border-slate-500">
+                        <td>{team.matchid}</td>
+                        <td class="inline-flex items-center">
+                            <svg class="w-3 h-3 mr-1 mt-px">
+                                <circle cx="5" cy="5" r="5" class={`fill-current ${(team.allianceColor === AllianceColor.red) ? "text-red-500" : "text-blue-600"}`}></circle>
+                            </svg>
+                            {team.teamid}
+                        </td>
+                        <td>{@html winState(team.winState ?? WinState.unset)}</td>
+                        <td class={`${(!team.autoTaxi)    ? "font-thin text-slate-500" : ""} border-l border-slate-500`}>{team.autoTaxi ? "Yes" : "No"}</td>
+                        <td class={`${(!team.autoSpeaker) ? "font-thin text-slate-500" : ""}`}>{(team.autoSpeaker ?? 0)}</td>
+                        <td class={`${(!team.autoAmp)     ? "font-thin text-slate-500" : ""}`}>{(team.autoAmp ?? 0)}</td>
+                        <td class={`${(!team.teleSpeaker) ? "font-thin text-slate-500" : ""} border-l border-slate-500 `}>{team.teleSpeaker ?? 0}</td>
+                        <td class={`${(!team.teleAmp)     ? "font-thin text-slate-500" : ""}`}>{(team.teleAmp ?? 0)}</td>
+                        <td class={`${(!team.endClimb)    ? "font-thin text-slate-500" : ""} border-l border-slate-500`}>{team.endClimb ? "Yes" : "No"}</td>
+                        <td class={`${(!team.endTrap)     ? "font-thin text-slate-500" : ""}`}>{team.endTrap ? "Yes" : "No"}</td>
+                    </tr>
+                {/if}
             {/each}
         </tbody>
     </table>

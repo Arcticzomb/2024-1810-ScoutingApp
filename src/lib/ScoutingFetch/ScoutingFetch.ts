@@ -39,7 +39,7 @@ export class ScoutingFetch {
                 }
             }) {
         this.year = year;
-        this.event = event;
+        this.event = event.toLowerCase();
         this.eventkey = `${year}${event}`;
 
         // if the The Blue Alliance key is defined make the TBA object

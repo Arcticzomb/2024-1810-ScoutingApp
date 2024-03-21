@@ -1,12 +1,7 @@
 <script lang="ts">
-    import { IntakeStyle, WinState, scoutingData } from "$lib/stores";
-
+    import { WinState, scoutingData } from "$lib/stores";
+    import CurrentTeam from "../CurrentTeam.svelte";
 </script>
-
-<div class="flex">
-    <p class ="mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team</p>
-    <p class ={`scale-text-small font-semibold ${$scoutingData.teamcolor ? "text-blue-alliance" : "text-red-alliance"}`}>{$scoutingData.teamid}</p>
-</div>
 
 <div class="flex mb-3 justify-center">
     <div class="flex flex-row">
@@ -44,8 +39,8 @@
 
 <div class="flex justify-center dynPad">
     <div class="flex flex-row w-1/2">
-        <label for="station" class="flex flex-col justify-center text-w scale-text font-semibold">Station</label>
-        <input id="station" name="PickupButton" type="checkbox"
+        <label for="source" class="flex flex-col justify-center text-w scale-text font-semibold">Source</label>
+        <input id="source" name="PickupButton" type="checkbox"
         bind:checked={$scoutingData.intakeStyle[0]}
         class="testcheck:tog checked:bg-active bg-inactive ml-auto mr-0">
     </div>
@@ -81,10 +76,6 @@
         width: auto;
         text-align: center;
         padding: 10px;
-    }
-
-    .scale-text-small {
-        font-size : 4vw;
     }
 
     .scale-text {

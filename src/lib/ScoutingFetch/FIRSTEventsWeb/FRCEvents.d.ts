@@ -136,7 +136,7 @@ interface FrcChampionship {
 }
 /****************************************/
 interface FrcEvents {
-    Events:     Event[];
+    Events:     FrcEvent[];
     eventCount: number;
 }
 
