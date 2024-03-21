@@ -14,6 +14,10 @@
 
 </script>
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
 <div class="flex mb-3 justify-center">
     <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Auto Scoring</h1>
 </div>

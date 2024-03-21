@@ -1,5 +1,7 @@
 <svelte:head>
     <title>CATATRONICS | Collection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 </svelte:head>
 
 <script lang="ts">
@@ -17,6 +19,7 @@
     $scoutingData.teamid = data.existing.teamid;
     $scoutingData.teamcolor = data.existing.allianceColor;
 </script>
+
 
 {#if $scoutingPage !== ScoutingPage.loading}
 <div>

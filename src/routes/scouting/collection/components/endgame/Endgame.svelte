@@ -3,6 +3,10 @@
     import CurrentTeam from "../CurrentTeam.svelte";
 </script>
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
 <div class="flex mb-3 justify-center">
     <h1 class="flex flex-col justify-center text-w scale-text-large font-semibold">Stage State</h1>
 </div>
@@ -68,6 +72,7 @@
 <CurrentTeam scoutingData={$scoutingData}/>
 
 <style>
+    
     .dynPad {
         padding: 5vw;
     }
