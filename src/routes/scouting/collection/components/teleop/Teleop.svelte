@@ -13,6 +13,10 @@
     }
 </script>
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
 <div class="flex">
     <p class ="mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team</p>
     <p class ={`scale-text-small font-semibold ${$scoutingData.teamcolor ? "text-blue-alliance" : "text-red-alliance"}`}>{$scoutingData.teamid}</p>
@@ -62,9 +66,9 @@
     </div>
 </div>
 
-<div class="flex justify-center dynPad">
+<div class="flex justify-center">
     <div class="flex flex-row w-1/2 mt-8">
-        <label for="co-op" class="flex flex-col justify-center text-w scale-text font-semibold">Co-Op</label>
+        <label for="co-op" class="flex flex-col justify-center text-w scale-text font-semibold w-5/6">Co-Op</label>
         <input name="co-op" type="checkbox"
             bind:checked={$scoutingData.coopertition}
             class="testcheck:tog checked:bg-active bg-inactive">
@@ -95,9 +99,8 @@
         border-radius: 0.25rem;
         width: 10vw;
         height: 10vw;
-        margin-left: auto;
-        margin-right: 0;
         text-align: center;
+
     }
 
     .testcheck\:tog:not(:checked)::before,

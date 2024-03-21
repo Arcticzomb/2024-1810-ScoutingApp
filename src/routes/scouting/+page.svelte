@@ -1,5 +1,6 @@
 <svelte:head>
     <title>CATATRONICS | Scouting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
 <script lang="ts">
@@ -52,12 +53,14 @@
 
 </script>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <a href="/" class="inline-block portrait:w-1/4 landscape:w-1/6 text-w text-center text-xl shadow-sm rounded bg-active py-2 m-2">Back</a>
 
 {#if form?.error}
     <span class="center m-3 text-red-700 text-center text-2xl font-bold capitalize">{form.error}</span>
 {/if}
-    
+
 <form autocomplete="off" class="dynMarg bg-primary rounded-lg py-2 text-center" method="post" use:enhance>
     <div class="mt-2">
         <label for="matchid" class="block text-w text-3xl font-bold text-center mb-2">Match</label>
