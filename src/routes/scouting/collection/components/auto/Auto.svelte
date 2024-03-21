@@ -75,7 +75,9 @@
     </div>
 </div>
 
-<CurrentTeam scoutingData={$scoutingData}/>
+<div class="absolute w-full bottom-20">
+    <CurrentTeam scoutingData={$scoutingData}/>
+</div>
 
 <style>
 
