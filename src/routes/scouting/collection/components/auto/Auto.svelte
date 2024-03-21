@@ -17,6 +17,10 @@
 
 </script>
 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
 <div class="flex">
     <p class ="mx-1 scale-text-small font-semibold text-w">Match {$scoutingData.matchid} Team</p>
     <p class ={`scale-text-small font-semibold ${$scoutingData.teamcolor ? "text-blue-alliance" : "text-red-alliance"}`}>{$scoutingData.teamid}</p>
