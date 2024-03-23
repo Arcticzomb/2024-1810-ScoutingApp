@@ -53,8 +53,6 @@
 
 </script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 <a href="/" class="inline-block portrait:w-1/4 landscape:w-1/6 text-w text-center text-xl shadow-sm rounded bg-active py-2 m-2">Back</a>
 
 {#if form?.error}

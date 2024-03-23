@@ -55,7 +55,6 @@ export type Database = {
           endClimb: number | null
           endHarmony: number | null
           endNotes: string | null
-          endSpotlight: number | null
           endTrap: number | null
           id: number
           intakeStyle: number | null
@@ -74,7 +73,6 @@ export type Database = {
           endClimb?: number | null
           endHarmony?: number | null
           endNotes?: string | null
-          endSpotlight?: number | null
           endTrap?: number | null
           id?: number
           intakeStyle?: number | null
@@ -93,7 +91,6 @@ export type Database = {
           endClimb?: number | null
           endHarmony?: number | null
           endNotes?: string | null
-          endSpotlight?: number | null
           endTrap?: number | null
           id?: number
           intakeStyle?: number | null
