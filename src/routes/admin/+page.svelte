@@ -16,7 +16,7 @@
     const cullNull = (async () => {
         if (cullNullPressed) return;
         existing.forEach(async (data) => {
-            if ((data.winState !== WinState.unset) && data.winState !== null) return;
+            if ((data.winState !== WinState.unset) && (data.winState !== null)) return;
             const { error } =
                 await supabase.from("scouting-data").delete().eq("id", data.id);
             if (error)

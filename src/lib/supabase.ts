@@ -51,7 +51,6 @@ export type Database = {
           autoAmp: number | null
           autoSpeaker: number | null
           autoTaxi: number | null
-          coopertition: number | null
           endClimb: number | null
           endHarmony: number | null
           endNotes: string | null
@@ -69,7 +68,6 @@ export type Database = {
           autoAmp?: number | null
           autoSpeaker?: number | null
           autoTaxi?: number | null
-          coopertition?: number | null
           endClimb?: number | null
           endHarmony?: number | null
           endNotes?: string | null
@@ -87,7 +85,6 @@ export type Database = {
           autoAmp?: number | null
           autoSpeaker?: number | null
           autoTaxi?: number | null
-          coopertition?: number | null
           endClimb?: number | null
           endHarmony?: number | null
           endNotes?: string | null

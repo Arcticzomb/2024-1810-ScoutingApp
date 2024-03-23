@@ -45,8 +45,6 @@ export interface ScoutingData {
     winState: WinState,
     endNotes: string,
     intakeStyle: boolean[],
-    coopertition: boolean,
-    
 };
 
 const defaultData: ScoutingData = {
@@ -65,12 +63,8 @@ const defaultData: ScoutingData = {
     endTrap: false,
     endNotes: "",
     intakeStyle: [ false, false ],
-    coopertition: false
 };
 
-
-    
-    
 export const scoutingData = writable<ScoutingData>(defaultData);
 
 export const compileAndScore = (data: ScoutingData) => score(compile(data));
@@ -86,7 +80,6 @@ const compile = (data: ScoutingData) => {
         autoAmp: data.autoAmp,
         teleSpeaker: data.teleSpeaker,
         teleAmp: data.teleAmp,
-        coopertition: data.coopertition ? 1 : 0,
         endClimb: data.endClimb,
         endHarmony: (() => {
             if (data.endClimb === EndClimb.Hang)
