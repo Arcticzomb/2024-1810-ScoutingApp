@@ -1,11 +1,10 @@
 <svelte:head>
     <title>CATATRONICS | Scouting</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 </svelte:head>
 
 <div class="flex flex-col">
-    <img src="logo.webp" alt="tba.webp" width="200px" class="p-2 inline-block mt-2 mx-auto landscape:hidden">
+    <img src="logo.png" alt="CATATRONICS Logo" width="200px" class="p-2 inline-block mt-2 mx-auto landscape:hidden">
     <span id="ampText" class="flex-col text-w scale-text font-semibold inline-block text-center px-3">1810 & 9316 Scouting App</span>
 </div>
 
